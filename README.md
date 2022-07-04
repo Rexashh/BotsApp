@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://telegra.ph/file/5a5221379021cd1052484.jpg" height="400px"/>
+  <img src="https://telegra.ph/file/5a5221379021cd1052484.jpg" height="300px"/>
 </p>
 
 
@@ -21,11 +21,7 @@ Manfaatkan asisten obrolan/pengelola grup pribadi Anda untuk memaksimalkan Whats
 
 - Buka VPS mu dan ketik / Copy :
 ```bash
-git clone https://github.com/BotsAppOfficial/BotsApp.git
-```
-- Masuk Ke Repo ketik / Copy :
-```bash
-cd BotsApp
+git clone https://github.com/Rexashh/XaWhatsapp.git && cd XaWhatsapp
 ```
 - Install npm
 ```bash
