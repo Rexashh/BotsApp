@@ -23,7 +23,7 @@ Manfaatkan asisten obrolan/pengelola grup pribadi Anda untuk memaksimalkan Whats
 ```bash
 git clone https://github.com/Rexashh/XaWhatsapp.git && cd XaWhatsapp
 ```
-- Buat screen agar bot jalan 24jam di vps mu
+- Buat screen agar bot jalan 24jam di vps mu :
 ```bash
 screen -S botwhatsapp
 ```
