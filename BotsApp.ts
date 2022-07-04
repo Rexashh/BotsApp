@@ -41,36 +41,36 @@ setInterval(() => {
 
     let commandHandler: Map<string, Command> = new Map();
 
-    console.log(chalk.yellowBright.bold("[INFO] Installing Plugins... Please wait."));
+    console.log(chalk.yellowBright.bold("[INFO] Memasang Plugin... Harap tunggu >_<"));
     let moduleFiles: string[] = fs.readdirSync(join(__dirname, 'modules')).filter((file) => file.endsWith('.js'))
     for (let file of moduleFiles) {
         try {
             const command: Command = require(join(__dirname, 'modules', `${file}`));
             console.log(
-                chalk.magentaBright("[INFO] Successfully imported module"),
+                chalk.magentaBright("[INFO] Modul berhasil diimpor"),
                 chalk.cyanBright.bold(`${file}`)
             )
             commandHandler.set(command.name, command);
         } catch (error) {
             console.log(
-                chalk.blueBright.bold("[INFO] Could not import module"),
+                chalk.blueBright.bold("[INFO] Tidak dapat mengimpor modul"),
                 chalk.redBright.bold(`${file}`)
             )
             console.log(`[ERROR] `, error);
             continue;
         }
     }
-    console.log(chalk.green.bold("[INFO] Plugins Installed Successfully. The bot is ready to use."));
-    console.log(chalk.yellowBright.bold("[INFO] Connecting to Database."));
+    console.log(chalk.green.bold("[INFO] Plugin Berhasil Diinstal. Bot siap digunakan."));
+    console.log(chalk.yellowBright.bold("[INFO] Menghubungkan ke Database."));
     try {
         await sequelize.authenticate();
-        console.log(chalk.greenBright.bold('[INFO] Connection has been established successfully.'));
+        console.log(chalk.greenBright.bold('[INFO] Koneksi telah berhasil dibuat .'));
     } catch (error) {
-        console.error('[ERROR] Unable to connect to the database:', error);
+        console.error('[ERROR] Tidak dapat terhubung ke database:', error);
     }
-    console.log(chalk.yellowBright.bold("[INFO] Syncing Database..."));
+    console.log(chalk.yellowBright.bold("[INFO] Sinkronisasi Database..."));
     await sequelize.sync();
-    console.log(chalk.greenBright.bold("[INFO] All models were synchronized successfully."));
+    console.log(chalk.greenBright.bold("[INFO] Semua modul berhasil disinkronkan."));
 
     let firstInit: boolean = true;
 
@@ -119,7 +119,7 @@ setInterval(() => {
                 const command = commandHandler.get(BotsApp.commandName);
                 var args = BotsApp.body.trim().split(/\s+/).slice(1);
                 if (!command) {
-                    client.sendMessage(BotsApp.chatId, "```Woops, invalid command! Use```  *.help*  ```to display the command list.```", MessageType.text);
+                    client.sendMessage(BotsApp.chatId, "```Ups, perintah tidak valid! Gunakan```  *.help*  ```to display the command list.```", MessageType.text);
                     return;
                 } else if (command && BotsApp.commandName == "help") {
                     try {
@@ -145,11 +145,11 @@ setInterval(() => {
                 if ((lastDisconnect.error as Boom)?.output?.statusCode !== DisconnectReason.loggedOut) {
                     startSock()
                 } else {
-                    console.log(chalk.redBright('Connection closed. You are logged out. Delete the BotsApp.db and session.data.json files to rescan the code.'));
+                    console.log(chalk.redBright('Koneksi ditutup. Anda logout. Hapus file BotsApp.db dan session.data.json untuk memindai ulang kode.'));
                     process.exit(0);
                 }
             } else if (connection === 'connecting') {
-                console.log(chalk.yellowBright("[INFO] Connecting to WhatsApp..."));
+                console.log(chalk.yellowBright("[INFO] Menghubungkan ke WhatsApp..."));
             } else if (connection === 'open') {
                 console.log(chalk.greenBright.bold("[INFO] Connected! Welcome to BotsApp"));
                 // if (firstInit) {
