@@ -265,7 +265,7 @@ const data = {
         DOWNLOADING: "```Gambar Anda sedang diunduh. Mohon tunggu...```",
         ERROR: "```Ups, ada yang tidak beres. Coba lagi nanti, atau mungkin tidak dengan ini lagi...```"
     },
-      stov: {
+    stov: {
         DESCRIPTION: "Module to convert animated sticker to video",
         EXTENDED_DESCRIPTION:
             "```Use this module to convert any animated sticker from your chat to a video. Reply to an animated sticker message with the command```  *.stov*  ```to convert and send that sticker as a video.```",
@@ -277,7 +277,7 @@ const data = {
         ERROR:
             "```Woops, something went wrong. Try again later, or proabaly not with this again...```",
    },
-    tr: {
+   tr: {
         DESCRIPTION: "Penerjemah bahasa",
         EXTENDED_DESCRIPTION: "```Gunakan```  *.tr <text> | <language>*  ```untuk menerjemahkan teks ke bahasa yang ditentukan. Anda juga dapat membalas pesan teks dengan sintaks```  *.tr <bahasa>*  ```untuk menerjemahkan teks.\nJika Anda tidak menentukan bahasa, defaultnya adalah <English class=''></English>```",
         PROCESSING: "```Menerjemahkan. Mohon tunggu...```",
@@ -288,12 +288,17 @@ const data = {
         NO_INPUT: "```Tidak ada masukan yang terdeteksi. Mohon gunakan``` *.help tts* ```untuk info tentang cara menggunakan modul ini.```"
     },
     tts: {
-        DESCRIPTION: "Text To Speech",
-        EXTENDED_DESCRIPTION: "```Use```  *.tts <text>*  ```or```  *.tts <text> | <kode_bahasa>*  ```untuk mengonversi teks menjadi ucapan.\nAnda juga dapat membalas pesan teks dengan sintaks```  *.tr <language>*  ```to translate text.```",
-        PROCESSING: "```Mengubah teks menjadi ucapan. Mohon tunggu...```",
-        TOO_LONG: "*Total karakter harus kurang dari 200.*\n```Total karakter untuk input saat ini adalah``` ```{}.```",
-        INVALID_LANG_CODE: "*Kode Bahasa salah.*\n```Kode Bahasa umumnya adalah dua huruf pertama dari bahasa yang ingin Anda ubah.```",
-        NO_INPUT: "```Tidak ada masukan yang terdeteksi. Silakan gunakan``` *.help tts* ```untuk info tentang cara menggunakan modul ini.```"
+        DESCRIPTION: "Text To Speech.",
+        EXTENDED_DESCRIPTION:
+            "```Use```  *.tts <text>*  ```or```  *.tts <text> | <language_code>*  ```to convert text to speech.\nYou can also reply to a text message with syntax```  *.tr <language>*  ```to translate text.```",
+        PROCESSING: "```Converting text to speech. Please wait...```",
+        TOO_LONG:
+            "*Total characters should be less than 200.*\n```Total characters for current input were``` ```{}.```",
+        INVALID_LANG_CODE:
+            "*The Language Code was incorrect.*\n```The Language Code is generally the first two letters of the language you're trying to convert to.```",
+        NO_INPUT:
+            "```No input was detected. Please use``` *.help tts* ```for info on how to use this module.```",
+        INCORRECT_REPLY: "```Please reply to a valid text message only.```",
     },
     tagall: {
         DESCRIPTION: "Modul untuk menandai semua orang dalam grup.",
