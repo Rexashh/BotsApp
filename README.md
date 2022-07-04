@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/BotsApp_Logo.png" height="400px"/>
+  <img src="https://telegra.ph/file/5a5221379021cd1052484.jpg" height="400px"/>
 </p>
 
 
