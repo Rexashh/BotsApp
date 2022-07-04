@@ -19,12 +19,12 @@ const clearance = async (BotsApp: BotsApp, client: Client, isBlacklist: boolean)
                 return false;
             }
         } else if ((!BotsApp.fromMe && !BotsApp.isSenderSUDO)) {
-            console.log(chalk.blueBright.bold(`[INFO] Blacklisted Chat or User.`));
+            console.log(chalk.blueBright.bold(`[INFO] Obrolan atau Pengguna Daftar Hitam.`));
             return false;
         }
     }
     else if ((BotsApp.chatId === "917838204238-1634977991@g.us" || BotsApp.chatId === "120363020858647962@g.us" || BotsApp.chatId === "120363023294554225@g.us")) {
-        console.log(chalk.blueBright.bold(`[INFO] Bot disabled in Support Groups.`));
+        console.log(chalk.blueBright.bold(`[INFO] Bot dinonaktifkan di Grup Dukungan.`));
         return false;
     }
     if (BotsApp.isCmd && (!BotsApp.fromMe && !BotsApp.isSenderSUDO)) {
@@ -55,7 +55,7 @@ const clearance = async (BotsApp: BotsApp, client: Client, isBlacklist: boolean)
                     );
                     let messageSent: boolean = await Users.getUser(BotsApp.chatId);
                     if (messageSent) {
-                        console.log(chalk.blueBright.bold("[INFO] Promo message had already been sent to " + BotsApp.chatId))
+                        console.log(chalk.blueBright.bold("[INFO] Pesan promo sudah terkirim ke " + BotsApp.chatId))
                         return false;
                     }
                     else {
