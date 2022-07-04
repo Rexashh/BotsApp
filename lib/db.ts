@@ -1,5 +1,3 @@
-# kontollllllllll bgsttt
-
 const data = {
     general: {
         NUMBER_SYNTAX_ERROR:
