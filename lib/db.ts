@@ -50,7 +50,7 @@ const data = {
         DESCRIPTION: "Periksa apakah bot sedang online.",
         EXTENDED_DESCRIPTION:
             "```Modul ini dapat digunakan untuk memeriksa apakah bot sedang online atau tidak.\n\nContoh penggunaan,```\n*.alive*",
-        ALIVE_MSG: "```⚡ Xa-Bots telah berhasil diaktifkan.\n\nGunakan ```  *.help*  ``` untuk mendapatkan daftar plugin yang akan membuat WhatsApp Anda Menjadi lebih asik.\n\n♥️made with love by Aditya```"
+        ALIVE_MSG: "```⚡ 𝙓𝘼-𝙐𝙎𝙀𝙍𝘽𝙊𝙏 𝘼𝘾𝙏𝙄𝙑𝙀.\n\nGunakan ```  *.help*  ``` untuk mendapatkan daftar plugin yang akan membuat WhatsApp Anda Menjadi lebih asik.\n\n♥️made with love by Aditya```"
     },
     block: {
         DESCRIPTION: "Block contact",
