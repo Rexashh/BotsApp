@@ -169,7 +169,7 @@ const data = {
         TRY_LATER: "```Terlalu banyak mencoba. Silakan coba lagi nanti.```",
         PROCESSING: "```Menempelkan teks ke nekobin. Mohon tunggu...```"
     },
-      news: {
+    news: {
         DESCRIPTION: "Fetch news in a mobile readable format",
         EXTENDED_DESCRIPTION:
         "```Use this module to fetch news from a publication in mobile readable format from around 1500 publications. Enter text with the command```  *.news* .\n\nTo search for publications, use:-\n```.news search ``` _publication name_\n\nTo fetch news, use:-\n```.news fetch ``` _publication name_\n\nNews is fetched in epub format as it is more comfortable for reading in mobile devices. To read them in Android devices, you can use this application: https://play.google.com/store/apps/details?id=org.readera",
@@ -218,14 +218,17 @@ const data = {
         INPUT_ERROR: "```Balas ke orang yang ingin Anda hapus atau tandai mereka.\n\nContohnya,```  *.remove @<orang-untuk-dikick>*  ```atau balas menggunakan```  *.remove*."
     },
     rename: {
-        DESCRIPTION: "Modul untuk mengganti nama dokumen pdf atau teks.",
+        DESCRIPTION: "Module to rename a pdf or text document.",
         EXTENDED_DESCRIPTION:
-            "```Gunakan modul ini untuk mengganti nama dokumen dengan ```membalas mereka```  *.rename <new-name>*.",
-        DOWNLOADING: "```Dokumen Anda sedang diproses...```",
-        PROVIDE_NEW_NAME: "```Berikan nama baru untuk dokumen Anda.```",
-        REPLY_TO_DOCUMENT: "```Balas pesan dokumen yang valid untuk mengubah nama filenya.```",
-        ERROR: "```Ups, ada yang tidak beres. Coba lagi nanti, atau mungkin tidak dengan ini lagi...```"
-
+            "```Use this module to rename documents by ```replying to them```  *.rename <new-name>*.",
+        DOWNLOADING: "```Your document is being processed...```",
+        PROVIDE_NEW_NAME: "```Provide a new name for your document.```",
+        REPLY_TO_DOCUMENT:
+            "```Reply to a valid document message to change it's file name.```",
+        ERROR:
+            "```Woops, something went wrong. Try again later, or proabaly not with this again...```",
+        VALID_REPLY:
+            "```Please tag a valid image / sticker / audio / document / pdf / GIF.```",
     },
     setdp: {
         DESCRIPTION: "Ubah ikon grup",
