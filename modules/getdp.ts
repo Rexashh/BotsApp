@@ -38,7 +38,7 @@ module.exports = {
                     fs.readFileSync("./images/default_dp.png"),
                     MessageType.image,
                     {
-                        caption: "```This is the display picture visible to me. :P```",
+                        caption: "```Gagal mengambil foto karena pp nya ga ada kaya orang depresi 😭```",
                     }
                 );
             } else {
