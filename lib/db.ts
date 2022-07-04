@@ -50,7 +50,7 @@ const data = {
         DESCRIPTION: "Periksa apakah bot sedang online.",
         EXTENDED_DESCRIPTION:
             "```Modul ini dapat digunakan untuk memeriksa apakah bot sedang online atau tidak.\n\nContoh penggunaan,```\n*.alive*",
-        ALIVE_MSG: "```⚡ 𝙓𝘼-𝙐𝙎𝙀𝙍𝘽𝙊𝙏 𝘼𝘾𝙏𝙄𝙑𝙀.\n\nGunakan ```  *.help*  ``` untuk mendapatkan daftar plugin yang akan membuat WhatsApp Anda Menjadi lebih asik.\n\n♥️made with love by Aditya```"
+        ALIVE_MSG: "```⚡ 𝙓𝘼-𝙐𝙎𝙀𝙍𝘽𝙊𝙏 𝘼𝘾𝙏𝙄𝙑𝙀.\n\nGunakan ```  *.help*  ``` untuk melihat semua module.\n\n♥️ Made with love by Aditya```"
     },
     block: {
         DESCRIPTION: "Block contact",
@@ -125,8 +125,8 @@ const data = {
             "This module is used to get info on other modules and their triggers.",
         HEAD: "⚡ *Xa-Bots Menu* ⚡\n```Gunakan .help untuk info rinci tentang modul.```",
         TEMPLATE: "\n\n⚡ *Perintah* - ```{}```\n• *Info* - ```{}```",
-        COMMAND_INTERFACE: "⚡ *Xa-Bots Antarmuka Perintah* ⚡\n\n",
-        COMMAND_INTERFACE_TEMPLATE: "🔥 *Triggers -* ```{}```\n🧾 *Info -* {}",
+        COMMAND_INTERFACE: "⚡ *Xa-Userbot Perintah* ⚡\n\n",
+        COMMAND_INTERFACE_TEMPLATE: "🖱️ *Prefix -* ```{}```\n📋 *Info -* {}",
         FOOTER: "```\n\nKlik tombol di bawah ini untuk mendapatkan pratinjau plugin.```"
     },
     invite: {
@@ -170,11 +170,11 @@ const data = {
         PROCESSING: "```Menempelkan teks ke nekobin. Mohon tunggu...```"
     },
     news: {
-        DESCRIPTION: "Fetch news in a mobile readable format",
+        DESCRIPTION: "Ambil berita dalam format yang dapat dibaca seluler",
         EXTENDED_DESCRIPTION:
-        "```Use this module to fetch news from a publication in mobile readable format from around 1500 publications. Enter text with the command```  *.news* .\n\nTo search for publications, use:-\n```.news search ``` _publication name_\n\nTo fetch news, use:-\n```.news fetch ``` _publication name_\n\nNews is fetched in epub format as it is more comfortable for reading in mobile devices. To read them in Android devices, you can use this application: https://play.google.com/store/apps/details?id=org.readera",
-        NO_COMMMAND: "```No arguments supplied. Use``` *.help news* ```for info on how to use the command.```",
-        NO_PUB_NAME: "```No publication name supplied. Use``` *.help news* ```for info on how to use the command.```"
+        "```Gunakan modul ini untuk mengambil berita dari publikasi dalam format yang dapat dibaca seluler dari sekitar 1500 publikasi. Masukkan teks dengan perintah```  *.news* .\n\nUntuk mencari publikasi, gunakan:-\n```.news search ``` _publication name_\n\nTo ambil berita, use:-\n```.news fetch ``` _publication name_\n\nBerita diambil dalam format epub karena lebih nyaman untuk dibaca di perangkat seluler. Untuk membacanya di perangkat Android, Anda dapat menggunakan aplikasi ini: https://play.google.com/store/apps/details?id=org.readera",
+        NO_COMMMAND: "```Tidak ada argumen yang diberikan. Menggunakan``` *.help news* ```untuk info tentang cara menggunakan perintah.```",
+        NO_PUB_NAME: "```Tidak ada nama publikasi yang diberikan. Menggunakan``` *.help news* ```untuk info tentang cara menggunakan perintah.```"
     },
     ocr: {
         DESCRIPTION: "Pengenalan Karakter Optik",
