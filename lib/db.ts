@@ -169,6 +169,13 @@ const data = {
         TRY_LATER: "```Terlalu banyak mencoba. Silakan coba lagi nanti.```",
         PROCESSING: "```Menempelkan teks ke nekobin. Mohon tunggu...```"
     },
+      news: {
+        DESCRIPTION: "Fetch news in a mobile readable format",
+        EXTENDED_DESCRIPTION:
+        "```Use this module to fetch news from a publication in mobile readable format from around 1500 publications. Enter text with the command```  *.news* .\n\nTo search for publications, use:-\n```.news search ``` _publication name_\n\nTo fetch news, use:-\n```.news fetch ``` _publication name_\n\nNews is fetched in epub format as it is more comfortable for reading in mobile devices. To read them in Android devices, you can use this application: https://play.google.com/store/apps/details?id=org.readera",
+        NO_COMMMAND: "```No arguments supplied. Use``` *.help news* ```for info on how to use the command.```",
+        NO_PUB_NAME: "```No publication name supplied. Use``` *.help news* ```for info on how to use the command.```"
+    },
     ocr: {
         DESCRIPTION: "Pengenalan Karakter Optik",
         EXTENDED_DESCRIPTION: "```Gunakan modul ini untuk mendapatkan teks dari gambar dengan```  *.ocr*  ``Silahkan dicoba```",
@@ -255,6 +262,18 @@ const data = {
         DOWNLOADING: "```Gambar Anda sedang diunduh. Mohon tunggu...```",
         ERROR: "```Ups, ada yang tidak beres. Coba lagi nanti, atau mungkin tidak dengan ini lagi...```"
     },
+      stov: {
+        DESCRIPTION: "Module to convert animated sticker to video",
+        EXTENDED_DESCRIPTION:
+            "```Use this module to convert any animated sticker from your chat to a video. Reply to an animated sticker message with the command```  *.stov*  ```to convert and send that sticker as a video.```",
+        ANIMATED_STICKER_ERROR:
+            "```Tagged sticker message is animated, ``` *Can not convert animated sticker to image*, ```Try again with a static sticker.```",
+        TAG_A_VALID_STICKER_MESSAGE:
+            "```Please tag a valid animated sticker message to convert to a video.```",
+        DOWNLOADING: "```Your sticker is downloading. Please wait...```",
+        ERROR:
+            "```Woops, something went wrong. Try again later, or proabaly not with this again...```",
+   },
     tr: {
         DESCRIPTION: "Penerjemah bahasa",
         EXTENDED_DESCRIPTION: "```Gunakan```  *.tr <text> | <language>*  ```untuk menerjemahkan teks ke bahasa yang ditentukan. Anda juga dapat membalas pesan teks dengan sintaks```  *.tr <bahasa>*  ```untuk menerjemahkan teks.\nJika Anda tidak menentukan bahasa, defaultnya adalah <English class=''></English>```",
