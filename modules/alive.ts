@@ -22,12 +22,9 @@ client.sendMessage(
                  {
                         caption: alive.ALIVEMSG,
                     }
-                );
-            } else {
-                await inputSanitization.handleError(err, client, XA);
-            }
-
-            return
+                       ).catch(err => inputSanitization.handleError(err, client, XA));
+        } catch (err) {
+            await inputSanitization.handleError(err, client, XA);
         }
     },
 };
