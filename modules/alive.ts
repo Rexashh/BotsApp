@@ -23,8 +23,7 @@ client.sendMessage(
                         caption: alive.ALIVEMSG,
                     }
                 );
-            } 
-        else {
+            } else {
                 await inputSanitization.handleError(err, client, XA);
             }
 
