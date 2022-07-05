@@ -49,9 +49,7 @@ const data = {
     alive: {
         DESCRIPTION: "Periksa apakah bot sedang online.",
         EXTENDED_DESCRIPTION:
-            "```This module can be used to check if the bot is currently online or not.\n\nExample usage,```\n*.alive*",
-        ALIVE_MSG:"```🕸️ XA has been integrated successfully. 🕸️\n\nUse the```  *.help*  ```command to get a list of plugins that will make your WhatsApp experience much easier.```",
-                  "```Modul ini dapat digunakan untuk memeriksa apakah bot sedang online atau tidak.\n\nContoh penggunaan,```\n*.alive*",
+            "```Modul ini dapat digunakan untuk memeriksa apakah bot sedang online atau tidak.\n\nContoh penggunaan,```\n*.alive*",
         ALIVE_MSG: "```⚡ 𝙓𝘼-𝙐𝙎𝙀𝙍𝘽𝙊𝙏 𝘼𝘾𝙏𝙄𝙑𝙀.\n\nGunakan ```  *.help*  ``` untuk melihat semua module.```"
     },
     block: {
