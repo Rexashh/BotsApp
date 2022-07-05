@@ -21,8 +21,7 @@ client.sendMessage(
                 MessageType.image,
                  {
                         caption: alive.ALIVEMSG,
-                    }
-                       ).catch(err => inputSanitization.handleError(err, client, XA));
+                  ).catch(err => inputSanitization.handleError(err, client, XA));
         } catch (err) {
             await inputSanitization.handleError(err, client, XA);
         }
