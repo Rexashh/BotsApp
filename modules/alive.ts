@@ -1,5 +1,5 @@
 import Strings from "../lib/db";
-import fs from "fs",
+import fs from "fs";
 import format from "string-format";
 import inputSanitization from "../sidekick/input-sanitization";
 import { MessageType } from "../sidekick/message-type";
@@ -12,7 +12,7 @@ export = {
     name: "alive",
     description: alive.DESCRIPTION,
     extendedDescription: alive.EXTENDED_DESCRIPTION,
-    demo: { isEnabled: true, text: ".alive" },
+    demo: { isEnabled: true, image: ".alive" },
     async handle(client: Client, chat: proto.IWebMessageInfo, XA: XA, args: string[]): Promise<void> {
         try {
 client.sendMessage(
