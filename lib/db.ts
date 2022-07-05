@@ -182,7 +182,12 @@ const data = {
         PROCESSING: "```⚡Sedang memperoses. Please wait...```",
         ERROR_MSG: "```OCR adalah singkatan dari Optical Character Recognition. Balas gambar dengan teks untuk mendapatkan teks itu. Menggunakan perintah``` *.help ocr* ```untuk info lebih lanjut.```",
         NO_TEXT: "Tidak dapat menemukan teks dalam gambar"
-    },
+    }, 
+    ping: {
+		DESCRIPTION: "Measures your ping.",
+		EXTENDED_DESCRIPTION: "Measures your connection trough the internet per ms.",
+		PING_MSG: "⚡*Pong!* ```{PINGVAR} ms```",
+	},
     promote: {
         DESCRIPTION: "Promosikan anggota menjadi admin",
         EXTENDED_DESCRIPTION:
