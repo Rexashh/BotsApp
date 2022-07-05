@@ -12,7 +12,7 @@ export = {
     name: "alive",
     description: alive.DESCRIPTION,
     extendedDescription: alive.EXTENDED_DESCRIPTION,
-    demo: { isEnabled: true, image: ".alive" },
+    demo: { isEnabled: true, text: ".alive" },
     async handle(client: Client, chat: proto.IWebMessageInfo, XA: XA, args: string[]): Promise<void> {
         try {
 client.sendMessage(
@@ -23,7 +23,8 @@ client.sendMessage(
                         caption: alive.ALIVEMSG,
                     }
                 );
-            } else {
+            } 
+        else {
                 await inputSanitization.handleError(err, client, XA);
             }
 
