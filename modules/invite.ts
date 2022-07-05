@@ -2,7 +2,7 @@ import inputSanitization from "../sidekick/input-sanitization";
 import STRINGS from "../lib/db.js";
 import Client from "../sidekick/client";
 import { proto } from "@adiwajshing/baileys";
-import BotsApp from "../sidekick/sidekick";
+import XA from "../sidekick/sidekick";
 import { MessageType } from "../sidekick/message-type"
 
 module.exports = {
@@ -10,47 +10,47 @@ module.exports = {
     description: STRINGS.invite.DESCRIPTION,
     extendedDescription: STRINGS.invite.EXTENDED_DESCRIPTION,
     demo: { isEnabled: false },
-    async handle(client: Client, chat: proto.IWebMessageInfo, BotsApp: BotsApp, args: string[]): Promise<void> {
+    async handle(client: Client, chat: proto.IWebMessageInfo, XA: XA, args: string[]): Promise<void> {
         try {
-            if (!BotsApp.isGroup) {
+            if (!XA.isGroup) {
                 client.sendMessage(
-                    BotsApp.chatId,
+                    XA.chatId,
                     STRINGS.general.NOT_A_GROUP,
                     MessageType.text
-                ).catch(err => inputSanitization.handleError(err, client, BotsApp));
+                ).catch(err => inputSanitization.handleError(err, client, XA));
                 return;
             }
-            await client.getGroupMetaData(BotsApp.chatId, BotsApp);
-            if (!BotsApp.isBotGroupAdmin) {
+            await client.getGroupMetaData(XA.chatId, XA);
+            if (!XA.isBotGroupAdmin) {
                 client.sendMessage(
-                    BotsApp.chatId,
+                    XA.chatId,
                     STRINGS.general.BOT_NOT_ADMIN,
                     MessageType.text
-                ).catch(err => inputSanitization.handleError(err, client, BotsApp));
+                ).catch(err => inputSanitization.handleError(err, client, XA));
                 return;
             }
-            const code = await client.sock.groupInviteCode(BotsApp.chatId);
-            if (BotsApp.isTextReply) {
+            const code = await client.sock.groupInviteCode(XA.chatId);
+            if (XA.isTextReply) {
                 client.sendMessage(
                     chat.message.extendedTextMessage.contextInfo.participant,
                     "https://chat.whatsapp.com/" + code,
                     MessageType.text
-                ).catch(err => inputSanitization.handleError(err, client, BotsApp));
+                ).catch(err => inputSanitization.handleError(err, client, XA));
                 client.sendMessage(
-                    BotsApp.chatId,
+                    XA.chatId,
                     STRINGS.invite.LINK_SENT,
                     MessageType.text
-                ).catch(err => inputSanitization.handleError(err, client, BotsApp));
+                ).catch(err => inputSanitization.handleError(err, client, XA));
                 return;
             }
             client.sendMessage(
-                BotsApp.chatId,
+                XA.chatId,
                 "https://chat.whatsapp.com/" + code,
                 MessageType.text
-            ).catch(err => inputSanitization.handleError(err, client, BotsApp));
+            ).catch(err => inputSanitization.handleError(err, client, XA));
             return;
         } catch (err) {
-            await inputSanitization.handleError(err, client, BotsApp);
+            await inputSanitization.handleError(err, client, XA);
         }
     },
 };

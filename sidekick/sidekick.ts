@@ -1,6 +1,6 @@
 import {GroupParticipant} from '@adiwajshing/baileys'
 
-class BotsApp {
+class XA {
 
     mimeType: string;
     type: string;
@@ -40,4 +40,4 @@ class BotsApp {
     isReplyAnimatedSticker: boolean
 }
 
-export = BotsApp;
+export = XA;

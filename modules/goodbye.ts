@@ -3,7 +3,7 @@ import inputSanitization from "../sidekick/input-sanitization";
 import Greetings from "../database/greeting";
 import Client from "../sidekick/client";
 import { proto } from "@adiwajshing/baileys";
-import BotsApp from "../sidekick/sidekick";
+import XA from "../sidekick/sidekick";
 import { MessageType } from "../sidekick/message-type";
 const GOODBYE = Strings.goodbye;
 
@@ -15,39 +15,39 @@ module.exports = {
         isEnabled: true,
         text: [".goodbye", ".goodbye off", ".goodbye delete"],
     },
-    async handle(client: Client, chat: proto.IWebMessageInfo, BotsApp: BotsApp, args: string[]): Promise<void> {
+    async handle(client: Client, chat: proto.IWebMessageInfo, XA: XA, args: string[]): Promise<void> {
         try {
-            if (!BotsApp.isGroup) {
+            if (!XA.isGroup) {
                 client.sendMessage(
-                    BotsApp.chatId,
+                    XA.chatId,
                     GOODBYE.NOT_A_GROUP,
                     MessageType.text
                 );
                 return;
             }
             if (args.length == 0) {
-                await client.getGroupMetaData(BotsApp.chatId, BotsApp);
-                var Msg: any = await Greetings.getMessage(BotsApp.chatId, "goodbye");
+                await client.getGroupMetaData(XA.chatId, XA);
+                var Msg: any = await Greetings.getMessage(XA.chatId, "goodbye");
                 try {
                     var enabled = await Greetings.checkSettings(
-                        BotsApp.chatId,
+                        XA.chatId,
                         "goodbye"
                     );
                     if (enabled === false || enabled === undefined) {
                         client.sendMessage(
-                            BotsApp.chatId,
+                            XA.chatId,
                             GOODBYE.SET_GOODBYE_FIRST,
                             MessageType.text
                         );
                         return;
                     } else if (enabled === "OFF") {
                         await client.sendMessage(
-                            BotsApp.chatId,
+                            XA.chatId,
                             GOODBYE.CURRENTLY_DISABLED,
                             MessageType.text
                         );
                         await client.sendMessage(
-                            BotsApp.chatId,
+                            XA.chatId,
                             Msg.message,
                             MessageType.text
                         );
@@ -55,12 +55,12 @@ module.exports = {
                     }
 
                     await client.sendMessage(
-                        BotsApp.chatId,
+                        XA.chatId,
                         GOODBYE.CURRENTLY_ENABLED,
                         MessageType.text
                     );
                     await client.sendMessage(
-                        BotsApp.chatId,
+                        XA.chatId,
                         Msg.message,
                         MessageType.text
                     );
@@ -76,11 +76,11 @@ module.exports = {
                     ) {
                         let switched = "OFF";
                         await Greetings.changeSettings(
-                            BotsApp.chatId,
+                            XA.chatId,
                             switched
                         );
                         client.sendMessage(
-                            BotsApp.chatId,
+                            XA.chatId,
                             GOODBYE.GREETINGS_UNENABLED,
                             MessageType.text
                         );
@@ -93,11 +93,11 @@ module.exports = {
                     ) {
                         let switched = "ON";
                         await Greetings.changeSettings(
-                            BotsApp.chatId,
+                            XA.chatId,
                             switched
                         );
                         client.sendMessage(
-                            BotsApp.chatId,
+                            XA.chatId,
                             GOODBYE.GREETINGS_ENABLED,
                             MessageType.text
                         );
@@ -105,38 +105,38 @@ module.exports = {
                     }
                     if (args[0] === "delete") {
                         var Msg: any = await Greetings.deleteMessage(
-                            BotsApp.chatId,
+                            XA.chatId,
                             "goodbye"
                         );
                         if (Msg === false || Msg === undefined) {
                             client.sendMessage(
-                                BotsApp.chatId,
+                                XA.chatId,
                                 GOODBYE.SET_GOODBYE_FIRST,
                                 MessageType.text
                             );
                             return;
                         }
                         await client.sendMessage(
-                            BotsApp.chatId,
+                            XA.chatId,
                             GOODBYE.GOODBYE_DELETED,
                             MessageType.text
                         );
 
                         return;
                     }
-                    let text = BotsApp.body.replace(
-                        BotsApp.body[0] + BotsApp.commandName + " ",
+                    let text = XA.body.replace(
+                        XA.body[0] + XA.commandName + " ",
                         ""
                     );
 
                     var Msg: any = await Greetings.getMessage(
-                        BotsApp.chatId,
+                        XA.chatId,
                         "goodbye"
                     );
                     if (Msg === false || Msg === undefined) {
-                        await Greetings.setGoodbye(BotsApp.chatId, text);
+                        await Greetings.setGoodbye(XA.chatId, text);
                         await client.sendMessage(
-                            BotsApp.chatId,
+                            XA.chatId,
                             GOODBYE.GOODBYE_UPDATED,
                             MessageType.text
                         );
@@ -144,12 +144,12 @@ module.exports = {
                         return;
                     } else {
                         await Greetings.deleteMessage(
-                            BotsApp.chatId,
+                            XA.chatId,
                             "goodbye"
                         );
-                        await Greetings.setGoodbye(BotsApp.chatId, text);
+                        await Greetings.setGoodbye(XA.chatId, text);
                         await client.sendMessage(
-                            BotsApp.chatId,
+                            XA.chatId,
                             GOODBYE.GOODBYE_UPDATED,
                             MessageType.text
                         );
@@ -160,7 +160,7 @@ module.exports = {
                 }
             }
         } catch (err) {
-            await inputSanitization.handleError(err, client, BotsApp);
+            await inputSanitization.handleError(err, client, XA);
         }
     },
 };

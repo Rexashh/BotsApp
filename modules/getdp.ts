@@ -2,7 +2,7 @@ import inputSanitization from "../sidekick/input-sanitization";
 import fs from "fs";
 import Strings from "../lib/db";
 import Client from "../sidekick/client.js";
-import BotsApp from "../sidekick/sidekick";
+import XA from "../sidekick/sidekick";
 import { MessageType } from "../sidekick/message-type";
 import { proto } from "@adiwajshing/baileys";
 const GETDP = Strings.getdp;
@@ -12,18 +12,18 @@ module.exports = {
     description: GETDP.DESCRIPTION,
     extendedDescription: GETDP.EXTENDED_DESCRIPTION,
     demo: { isEnabled: true, text: ".getdp" },
-    async handle(client: Client, chat: proto.IWebMessageInfo, BotsApp: BotsApp, args: string[]): Promise<void> {
+    async handle(client: Client, chat: proto.IWebMessageInfo, XA: XA, args: string[]): Promise<void> {
         try {
             let url: string;
             if (!args[0]) {
-                url = await client.sock.profilePictureUrl(BotsApp.chatId);
+                url = await client.sock.profilePictureUrl(XA.chatId);
             } else {
                 let jid: string = args[0].split("@")[1] + "@s.whatsapp.net";
                 url = await client.sock.profilePictureUrl(jid);
             }
 
             await client.sendMessage(
-                BotsApp.chatId,
+                XA.chatId,
                 { url: url },
                 MessageType.image,
                 {
@@ -34,7 +34,7 @@ module.exports = {
         } catch (err) {
             if (err.data === 404 || err.data === 401) {
                 await client.sendMessage(
-                    BotsApp.chatId,
+                    XA.chatId,
                     fs.readFileSync("./images/default_dp.png"),
                     MessageType.image,
                     {
@@ -42,7 +42,7 @@ module.exports = {
                     }
                 );
             } else {
-                await inputSanitization.handleError(err, client, BotsApp);
+                await inputSanitization.handleError(err, client, XA);
             }
 
             return

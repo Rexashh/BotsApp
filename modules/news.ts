@@ -1,7 +1,7 @@
 import STRINGS from "../lib/db.js";
 import Client from "../sidekick/client";
 import { proto } from "@adiwajshing/baileys";
-import BotsApp from "../sidekick/sidekick";
+import XA from "../sidekick/sidekick";
 import { MessageType } from "../sidekick/message-type";
 import inputSanitization from "../sidekick/input-sanitization";
 import Axios from "axios";
@@ -22,7 +22,7 @@ module.exports = {
     async handle(
         client: Client,
         chat: proto.IWebMessageInfo,
-        BotsApp: BotsApp,
+        XA: XA,
         args: string[]
     ): Promise<void> {
         /*******************************************
@@ -49,18 +49,18 @@ module.exports = {
          ********************************************/
         if (args.length === 0) {
             await client
-                .sendMessage(BotsApp.chatId, NEWS.NO_COMMMAND, MessageType.text)
-                .catch((err) => inputSanitization.handleError(err, client, BotsApp));
+                .sendMessage(XA.chatId, NEWS.NO_COMMMAND, MessageType.text)
+                .catch((err) => inputSanitization.handleError(err, client, XA));
             return;
         }
         if (args[0] == "help") {
             await client
                 .sendMessage(
-                    BotsApp.chatId,
+                    XA.chatId,
                     NEWS.EXTENDED_DESCRIPTION,
                     MessageType.text
                 )
-                .catch((err) => inputSanitization.handleError(err, client, BotsApp));
+                .catch((err) => inputSanitization.handleError(err, client, XA));
             return;
         }
         if (args[0] == "search") {
@@ -90,8 +90,8 @@ module.exports = {
                 message = "```Sorry, no publication found by that name!```"
             }
             await client
-                .sendMessage(BotsApp.chatId, message, MessageType.text)
-                .catch((err) => inputSanitization.handleError(err, client, BotsApp));
+                .sendMessage(XA.chatId, message, MessageType.text)
+                .catch((err) => inputSanitization.handleError(err, client, XA));
             return;
         }
         if (args[0] == "fetch") {
@@ -99,8 +99,8 @@ module.exports = {
             var searchTerm = args.join(" ");
             if (!searchTerm) {
                 await client
-                    .sendMessage(BotsApp.chatId, NEWS.NO_PUB_NAME, MessageType.text)
-                    .catch((err) => inputSanitization.handleError(err, client, BotsApp));
+                    .sendMessage(XA.chatId, NEWS.NO_PUB_NAME, MessageType.text)
+                    .catch((err) => inputSanitization.handleError(err, client, XA));
                 return;
             }
             let searchResponse;
@@ -121,17 +121,17 @@ module.exports = {
             let message =
                 "```Your requested publication``` *" +
                 foundPub +
-                "* ```is being fetched by BotsApp, this may take some time, please be patient!```";
+                "* ```is being fetched by XA, this may take some time, please be patient!```";
             if (!foundPub) {
                 message = "```Sorry, no publication found by that name!```";
                 await client
-                    .sendMessage(BotsApp.chatId, message, MessageType.text)
-                    .catch((err) => inputSanitization.handleError(err, client, BotsApp));
+                    .sendMessage(XA.chatId, message, MessageType.text)
+                    .catch((err) => inputSanitization.handleError(err, client, XA));
                 return;
             }
             await client
                 .sendMessage(
-                    BotsApp.chatId,
+                    XA.chatId,
                     {
                         url:
                             config.NEWS_API_URL + "news?pubName=" + foundPub + "&format=epub",
@@ -143,11 +143,11 @@ module.exports = {
                         caption: message,
                     }
                 )
-                .catch((err) => inputSanitization.handleError(err, client, BotsApp));
-            message = "```Your requested publication fetched by BotsApp``` ☝️";
+                .catch((err) => inputSanitization.handleError(err, client, XA));
+            message = "```Your requested publication fetched by XA``` ☝️";
             await client
-                .sendMessage(BotsApp.chatId, message, MessageType.text)
-                .catch((err) => inputSanitization.handleError(err, client, BotsApp));
+                .sendMessage(XA.chatId, message, MessageType.text)
+                .catch((err) => inputSanitization.handleError(err, client, XA));
             return;
         }
     },

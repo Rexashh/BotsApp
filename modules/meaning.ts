@@ -2,7 +2,7 @@ import Strings from "../lib/db";
 import inputSanitization from "../sidekick/input-sanitization";
 import googleDictionaryApi from "google-dictionary-api";
 import Client from "../sidekick/client.js";
-import BotsApp from "../sidekick/sidekick";
+import XA from "../sidekick/sidekick";
 import format from "string-format";
 import { MessageType } from "../sidekick/message-type";
 import { proto } from "@adiwajshing/baileys";
@@ -14,14 +14,14 @@ module.exports = {
     description: MEANING.DESCRIPTION,
     extendedDescription: MEANING.EXTENDED_DESCRIPTION,
     demo: {isEnabled: true, text: ".meaning meaning"},
-    async handle(client: Client, chat: proto.IWebMessageInfo, BotsApp: BotsApp, args: string[]): Promise<void> {
+    async handle(client: Client, chat: proto.IWebMessageInfo, XA: XA, args: string[]): Promise<void> {
         try {
             var word: string = "";
-            if (BotsApp.isTextReply) {
-                word = BotsApp.replyMessage;
+            if (XA.isTextReply) {
+                word = XA.replyMessage;
             } else if (args.length === 0) {
                 client.sendMessage(
-                    BotsApp.chatId,
+                    XA.chatId,
                     MEANING.NO_ARG,
                     MessageType.text
                 );
@@ -41,24 +41,24 @@ module.exports = {
                     const msg: string =
                         "*Word :* " + results[0].word + "\n\n*Meaning :*" + mean;
                     client
-                        .sendMessage(BotsApp.chatId, msg, MessageType.text)
+                        .sendMessage(XA.chatId, msg, MessageType.text)
                         .catch((err) =>
-                            inputSanitization.handleError(err, client, BotsApp)
+                            inputSanitization.handleError(err, client, XA)
                         );
                 })
                 .catch(() => {
                     client
                         .sendMessage(
-                            BotsApp.chatId,
+                            XA.chatId,
                             format(MEANING.NOT_FOUND, word),
                             MessageType.text
                         )
                         .catch((err) =>
-                            inputSanitization.handleError(err, client, BotsApp)
+                            inputSanitization.handleError(err, client, XA)
                         );
                 });
         } catch (err) {
-            await inputSanitization.handleError(err, client, BotsApp);
+            await inputSanitization.handleError(err, client, XA);
         }
     },
 };

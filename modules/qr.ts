@@ -3,7 +3,7 @@ import Strings from "../lib/db";
 import { Encoder, QRByte, ErrorCorrectionLevel } from "@nuintun/qrcode";
 import fs from "fs";
 import Client from "../sidekick/client.js";
-import BotsApp from "../sidekick/sidekick";
+import XA from "../sidekick/sidekick";
 import { MessageType } from "../sidekick/message-type";
 import { proto } from "@adiwajshing/baileys";
 const QR = Strings.qr;
@@ -12,21 +12,21 @@ module.exports = {
     name: "qr",
     description: QR.DESCRIPTION,
     extendedDescription: QR.EXTENDED_DESCRIPTION,
-    demo: { isEnabled: true, text: ".qr Hey, I am BotsApp." },
-    async handle(client: Client, chat: proto.IWebMessageInfo, BotsApp: BotsApp, args: string[]): Promise<void> {
+    demo: { isEnabled: true, text: ".qr Hey, I am XA." },
+    async handle(client: Client, chat: proto.IWebMessageInfo, XA: XA, args: string[]): Promise<void> {
         try {
-            if (args.length === 0 && !BotsApp.isTextReply) {
+            if (args.length === 0 && !XA.isTextReply) {
                 await client
-                    .sendMessage(BotsApp.chatId, QR.INVALID_INPUT, MessageType.text)
-                    .catch((err) => inputSanitization.handleError(err, client, BotsApp));
+                    .sendMessage(XA.chatId, QR.INVALID_INPUT, MessageType.text)
+                    .catch((err) => inputSanitization.handleError(err, client, XA));
                 return;
             }
 
             let message: string;
-            if (!BotsApp.isTextReply) {
+            if (!XA.isTextReply) {
                 message = args.join(" ");
             } else {
-                message = BotsApp.replyMessage;
+                message = XA.replyMessage;
             }
 
             const qrcode: Encoder = new Encoder();
@@ -45,20 +45,20 @@ module.exports = {
             );
 
             await client.sendMessage(
-                BotsApp.chatId,
+                XA.chatId,
                 fs.readFileSync(imagePath),
                 MessageType.image,
                 {
                     caption: QR.IMAGE_CAPTION,
                 }).catch((err) =>
-                    inputSanitization.handleError(err, client, BotsApp)
+                    inputSanitization.handleError(err, client, XA)
                 );
 
             inputSanitization.deleteFiles(imagePath);
             return;
 
         } catch (err) {
-            await inputSanitization.handleError(err, client, BotsApp);
+            await inputSanitization.handleError(err, client, XA);
         }
     }
 };

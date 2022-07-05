@@ -1,5 +1,5 @@
 import Client from "../sidekick/client.js";
-import BotsApp from "../sidekick/sidekick";
+import XA from "../sidekick/sidekick";
 import { MessageType } from "../sidekick/message-type";
 import { proto } from "@adiwajshing/baileys";
 import got, {Response} from "got";
@@ -13,19 +13,19 @@ module.exports = {
     description: STRINGS.lyrics.DESCRIPTION,
     extendedDescription: STRINGS.lyrics.EXTENDED_DESCRIPTION,
     demo: { isEnabled: true, text: ".lyrics Stairway to heaven" },
-    async handle(client: Client, chat: proto.IWebMessageInfo, BotsApp: BotsApp, args: string[]): Promise<void> {
+    async handle(client: Client, chat: proto.IWebMessageInfo, XA: XA, args: string[]): Promise<void> {
         const processing: proto.WebMessageInfo = await client.sendMessage(
-            BotsApp.chatId,
+            XA.chatId,
             STRINGS.lyrics.PROCESSING,
             MessageType.text
         );
         try {
             var song: string = "";
-            if (BotsApp.isTextReply) {
-                song = BotsApp.replyMessage;
+            if (XA.isTextReply) {
+                song = XA.replyMessage;
             } else if (args.length == 0) {
                 client.sendMessage(
-                    BotsApp.chatId,
+                    XA.chatId,
                     STRINGS.lyrics.NO_ARG,
                     MessageType.text
                 );
@@ -47,7 +47,7 @@ module.exports = {
 
             try {
                 await client.sendMessage(
-                    BotsApp.chatId,
+                    XA.chatId,
                     { url: data.thumbnail.genius },
                     MessageType.image,
                     {
@@ -55,11 +55,11 @@ module.exports = {
                     }
                 );
             } catch (err) {
-                client.sendMessage(BotsApp.chatId, caption, MessageType.text);
+                client.sendMessage(XA.chatId, caption, MessageType.text);
             }
-            await client.deleteMessage(BotsApp.chatId, {
+            await client.deleteMessage(XA.chatId, {
                 id: processing.key.id,
-                remoteJid: BotsApp.chatId,
+                remoteJid: XA.chatId,
                 fromMe: true,
             });
             // return;
@@ -74,22 +74,22 @@ module.exports = {
                     "\n*Lyrics :*\n" +
                     data.lyrics;
     
-                await client.sendMessage(BotsApp.chatId, caption, MessageType.text);
-                await client.deleteMessage(BotsApp.chatId, {
+                await client.sendMessage(XA.chatId, caption, MessageType.text);
+                await client.deleteMessage(XA.chatId, {
                     id: processing.key.id,
-                    remoteJid: BotsApp.chatId,
+                    remoteJid: XA.chatId,
                     fromMe: true,
                 });
             }catch(err){
                 await inputSanitization.handleError(
                     err,
                     client,
-                    BotsApp,
+                    XA,
                     STRINGS.lyrics.NOT_FOUND
                 );
-                return await client.deleteMessage(BotsApp.chatId, {
+                return await client.deleteMessage(XA.chatId, {
                     id: processing.key.id,
-                    remoteJid: BotsApp.chatId,
+                    remoteJid: XA.chatId,
                     fromMe: true,
                 });
             }

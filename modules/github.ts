@@ -2,7 +2,7 @@ import inputSanitization from "../sidekick/input-sanitization";
 import STRINGS from "../lib/db";
 import got, {Response} from "got";
 import Client from "../sidekick/client.js";
-import BotsApp from "../sidekick/sidekick";
+import XA from "../sidekick/sidekick";
 import { MessageType } from "../sidekick/message-type";
 import { proto } from "@adiwajshing/baileys";
 
@@ -11,15 +11,15 @@ module.exports = {
     description: STRINGS.github.DESCRIPTION,
     extendedDescription: STRINGS.github.EXTENDED_DESCRIPTION,
     demo: { isEnabled: true, text: ".github Prince-Mendiratta" },
-    async handle(client: Client, chat: proto.IWebMessageInfo, BotsApp: BotsApp, args: string[]): Promise<void> {
+    async handle(client: Client, chat: proto.IWebMessageInfo, XA: XA, args: string[]): Promise<void> {
         try {
             let user_name: string = "";
-            if (BotsApp.isTextReply) {
-                user_name = BotsApp.replyMessage;
+            if (XA.isTextReply) {
+                user_name = XA.replyMessage;
             } else {
                 if (args.length == 0) {
                     client.sendMessage(
-                        BotsApp.chatId,
+                        XA.chatId,
                         STRINGS.github.NO_ARG_ERROR,
                         MessageType.text
                     );
@@ -28,7 +28,7 @@ module.exports = {
                 user_name = args[0];
             }
             var fetching: proto.WebMessageInfo = await client.sendMessage(
-                BotsApp.chatId,
+                XA.chatId,
                 STRINGS.github.FETCHING,
                 MessageType.text
             );
@@ -79,7 +79,7 @@ module.exports = {
             }
             try {
                 await client.sendMessage(
-                    BotsApp.chatId,
+                    XA.chatId,
                     {
                         url: user.avatar_url,
                     },
@@ -89,23 +89,23 @@ module.exports = {
                     }
                 );
             } catch (err) {
-                client.sendMessage(BotsApp.chatId, caption, MessageType.text);
+                client.sendMessage(XA.chatId, caption, MessageType.text);
             }
-            return await client.deleteMessage(BotsApp.chatId, {
+            return await client.deleteMessage(XA.chatId, {
                 id: fetching.key.id,
-                remoteJid: BotsApp.chatId,
+                remoteJid: XA.chatId,
                 fromMe: true,
             });
         } catch (err) {
             await inputSanitization.handleError(
                 err,
                 client,
-                BotsApp,
+                XA,
                 STRINGS.github.ERROR_MSG
             );
-            return await client.deleteMessage(BotsApp.chatId, {
+            return await client.deleteMessage(XA.chatId, {
                 id: fetching.key.id,
-                remoteJid: BotsApp.chatId,
+                remoteJid: XA.chatId,
                 fromMe: true,
             });
         }

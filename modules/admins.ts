@@ -2,7 +2,7 @@ import Strings from "../lib/db";
 const ADMINS = Strings.admins;
 import inputSanitization from "../sidekick/input-sanitization";
 import Client from "../sidekick/client.js";
-import BotsApp from "../sidekick/sidekick";
+import XA from "../sidekick/sidekick";
 import { MessageType } from "../sidekick/message-type";
 import { proto } from "@adiwajshing/baileys";
 
@@ -11,32 +11,32 @@ module.exports = {
     description: ADMINS.DESCRIPTION,
     extendedDescription: ADMINS.EXTENDED_DESCRIPTION,
     demo: { text: ".admins", isEnabled: true },
-    async handle(client: Client, chat: proto.IWebMessageInfo, BotsApp: BotsApp, args: string[]): Promise<void> {
+    async handle(client: Client, chat: proto.IWebMessageInfo, XA: XA, args: string[]): Promise<void> {
         try {
-            if (!BotsApp.isGroup) {
+            if (!XA.isGroup) {
                 client.sendMessage(
-                    BotsApp.chatId,
+                    XA.chatId,
                     ADMINS.NOT_GROUP_CHAT,
                     MessageType.text
-                ).catch(err => inputSanitization.handleError(err, client, BotsApp));
+                ).catch(err => inputSanitization.handleError(err, client, XA));
                 return;
             }
 
             let message: string = "";
-            await client.getGroupMetaData(BotsApp.chatId, BotsApp);
-            for (let admin of BotsApp.groupAdmins) {
+            await client.getGroupMetaData(XA.chatId, XA);
+            for (let admin of XA.groupAdmins) {
                 let number: string = admin.split("@")[0];
                 message += `@${number} `;
             }
 
-            client.sendMessage(BotsApp.chatId, message, MessageType.text, {
+            client.sendMessage(XA.chatId, message, MessageType.text, {
                 contextInfo: {
-                    mentionedJid: BotsApp.groupAdmins,
+                    mentionedJid: XA.groupAdmins,
                 },
-            }).catch(err => inputSanitization.handleError(err, client, BotsApp));
+            }).catch(err => inputSanitization.handleError(err, client, XA));
             return;
         } catch (err) {
-            await inputSanitization.handleError(err, client, BotsApp);
+            await inputSanitization.handleError(err, client, XA);
         }
     },
 };

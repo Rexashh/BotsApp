@@ -1,6 +1,6 @@
 import { AnyMessageContent, GroupMetadata, GroupParticipant, proto, WASocket } from "@adiwajshing/baileys";
 import { MessageType } from "./message-type";
-import BotsApp from "./sidekick";
+import XA from "./sidekick";
 
 class Client {
     sock: WASocket;
@@ -76,7 +76,7 @@ class Client {
         });
     };
 
-    async getGroupMetaData(jid: string, BotsApp: BotsApp){
+    async getGroupMetaData(jid: string, XA: XA){
         const groupMetadata: GroupMetadata = jid.endsWith("@g.us") ? await this.sock.groupMetadata(jid) : null;
         const getGroupAdmins = (participants: GroupParticipant[]): string[] => {
             var admins: string[] = [];
@@ -86,12 +86,12 @@ class Client {
             // console.log("ADMINS -> " + admins);
             return admins;
         }
-        BotsApp.groupName = BotsApp.isGroup ? groupMetadata.subject : null;
-        BotsApp.groupMembers = BotsApp.isGroup ? groupMetadata.participants : null;
-        BotsApp.groupAdmins = BotsApp.isGroup ? getGroupAdmins(BotsApp.groupMembers) : null;
-        BotsApp.groupId = BotsApp.isGroup ? groupMetadata.id : null;
-        BotsApp.isBotGroupAdmin = BotsApp.isGroup ? (BotsApp.groupAdmins.includes(BotsApp.owner)) : false;
-        BotsApp.isSenderGroupAdmin = BotsApp.isGroup ? (BotsApp.groupAdmins.includes(BotsApp.sender)) : false;
+        XA.groupName = XA.isGroup ? groupMetadata.subject : null;
+        XA.groupMembers = XA.isGroup ? groupMetadata.participants : null;
+        XA.groupAdmins = XA.isGroup ? getGroupAdmins(XA.groupMembers) : null;
+        XA.groupId = XA.isGroup ? groupMetadata.id : null;
+        XA.isBotGroupAdmin = XA.isGroup ? (XA.groupAdmins.includes(XA.owner)) : false;
+        XA.isSenderGroupAdmin = XA.isGroup ? (XA.groupAdmins.includes(XA.sender)) : false;
     }
 }
 

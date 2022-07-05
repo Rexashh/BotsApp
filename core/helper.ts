@@ -1,12 +1,12 @@
 import fs from 'fs'
 import config from '../config'
 import chalk from 'chalk'
-import BotsAppClass from '../sidekick/sidekick'
+import XAClass from '../sidekick/sidekick'
 import { Contact, GroupMetadata, GroupParticipant, proto, WASocket } from '@adiwajshing/baileys'
 
 
 const resolve = async function (messageInstance: proto.IWebMessageInfo, client: WASocket) {
-    var BotsApp: BotsAppClass = new BotsAppClass();
+    var XA: XAClass = new XAClass();
     var prefix: string = config.PREFIX + '\\w+'
     var prefixRegex: RegExp = new RegExp(prefix, 'g');
     var SUDOstring: string = config.SUDO;
@@ -15,37 +15,37 @@ const resolve = async function (messageInstance: proto.IWebMessageInfo, client: 
     } catch (err) {
         console.log(chalk.redBright("[ERROR] Something went wrong. ", err))
     }
-    BotsApp.chatId = messageInstance.key.remoteJid;
-    BotsApp.fromMe = messageInstance.key.fromMe;
-    BotsApp.owner = client.user.id.replace(/:.*@/g, '@');
-    BotsApp.mimeType = messageInstance.message ? (Object.keys(messageInstance.message)[0] === 'senderKeyDistributionMessage' ? Object.keys(messageInstance.message)[2] : Object.keys(messageInstance.message)[0]) : null;
-    BotsApp.type = BotsApp.mimeType === 'imageMessage' ? 'image' : (BotsApp.mimeType === 'videoMessage') ? 'video' : (BotsApp.mimeType === 'conversation' || BotsApp.mimeType == 'extendedTextMessage') ? 'text' : (BotsApp.mimeType === 'audioMessage') ? 'audio' : (BotsApp.mimeType === 'stickerMessage') ? 'sticker' : (BotsApp.mimeType === 'senderKeyDistributionMessage' && messageInstance.message?.senderKeyDistributionMessage?.groupId === 'status@broadcast') ? 'status' : null;
-    BotsApp.isTextReply = (BotsApp.mimeType === 'extendedTextMessage' && messageInstance.message?.extendedTextMessage?.contextInfo?.stanzaId) ? true : false;
-    BotsApp.replyMessageId = messageInstance.message?.extendedTextMessage?.contextInfo?.stanzaId;
-    BotsApp.replyParticipant = messageInstance.message?.extendedTextMessage?.contextInfo?.participant.replace(/:.*@/g, '@');;
-    BotsApp.replyMessage = messageInstance.message?.extendedTextMessage?.contextInfo?.quotedMessage?.conversation;
-    BotsApp.body = BotsApp.mimeType === 'conversation' ? messageInstance.message?.conversation : (BotsApp.mimeType == 'imageMessage') ? messageInstance.message?.imageMessage.caption : (BotsApp.mimeType == 'videoMessage') ? messageInstance.message?.videoMessage.caption : (BotsApp.mimeType == 'extendedTextMessage') ? messageInstance.message?.extendedTextMessage?.text : (BotsApp.mimeType == 'buttonsResponseMessage') ? messageInstance.message?.buttonsResponseMessage.selectedDisplayText : null;
-    BotsApp.isCmd = prefixRegex.test(BotsApp.body);
-    BotsApp.commandName = BotsApp.isCmd ? BotsApp.body.slice(1).trim().split(/ +/).shift().toLowerCase() : null;
-    BotsApp.isImage = BotsApp.type === "image";
-    BotsApp.isReplyImage = messageInstance.message?.extendedTextMessage?.contextInfo?.quotedMessage?.imageMessage ? true : false;
-    BotsApp.imageCaption = BotsApp.isImage ? messageInstance.message?.imageMessage.caption : null;
-    BotsApp.isGIF = (BotsApp.type === 'video' && messageInstance.message?.videoMessage?.gifPlayback);
-    BotsApp.isReplyGIF = messageInstance.message?.extendedTextMessage?.contextInfo?.quotedMessage?.videoMessage?.gifPlayback ? true : false;
-    BotsApp.isSticker = BotsApp.type === 'sticker';
-    BotsApp.isReplySticker = messageInstance.message?.extendedTextMessage?.contextInfo?.quotedMessage?.stickerMessage ? true : false;
-    BotsApp.isReplyAnimatedSticker = messageInstance.message?.extendedTextMessage?.contextInfo?.quotedMessage?.stickerMessage?.isAnimated;
-    BotsApp.isVideo = (BotsApp.type === 'video' && !messageInstance.message?.videoMessage?.gifPlayback);
-    BotsApp.isReplyVideo = BotsApp.isTextReply ? (jsonMessage.indexOf("videoMessage") !== -1 && !messageInstance.message?.extendedTextMessage?.contextInfo.quotedMessage.videoMessage.gifPlayback) : false;
-    BotsApp.isAudio = BotsApp.type === 'audio';
-    BotsApp.isReplyAudio = messageInstance.message?.extendedTextMessage?.contextInfo?.quotedMessage?.audioMessage ? true : false;
-    BotsApp.logGroup = client.user.id.replace(/:.*@/g, '@');;
-    BotsApp.isGroup = BotsApp.chatId.endsWith('@g.us');
-    BotsApp.isPm = !BotsApp.isGroup;
-    BotsApp.sender = (BotsApp.isGroup && messageInstance.message && BotsApp.fromMe) ? BotsApp.owner : (BotsApp.isGroup && messageInstance.message) ? messageInstance.key.participant.replace(/:.*@/g, '@') : (!BotsApp.isGroup) ? BotsApp.chatId : null;
-    BotsApp.isSenderSUDO = SUDOstring.includes(BotsApp.sender?.substring(0, BotsApp.sender.indexOf("@")));
+    XA.chatId = messageInstance.key.remoteJid;
+    XA.fromMe = messageInstance.key.fromMe;
+    XA.owner = client.user.id.replace(/:.*@/g, '@');
+    XA.mimeType = messageInstance.message ? (Object.keys(messageInstance.message)[0] === 'senderKeyDistributionMessage' ? Object.keys(messageInstance.message)[2] : Object.keys(messageInstance.message)[0]) : null;
+    XA.type = XA.mimeType === 'imageMessage' ? 'image' : (XA.mimeType === 'videoMessage') ? 'video' : (XA.mimeType === 'conversation' || XA.mimeType == 'extendedTextMessage') ? 'text' : (XA.mimeType === 'audioMessage') ? 'audio' : (XA.mimeType === 'stickerMessage') ? 'sticker' : (XA.mimeType === 'senderKeyDistributionMessage' && messageInstance.message?.senderKeyDistributionMessage?.groupId === 'status@broadcast') ? 'status' : null;
+    XA.isTextReply = (XA.mimeType === 'extendedTextMessage' && messageInstance.message?.extendedTextMessage?.contextInfo?.stanzaId) ? true : false;
+    XA.replyMessageId = messageInstance.message?.extendedTextMessage?.contextInfo?.stanzaId;
+    XA.replyParticipant = messageInstance.message?.extendedTextMessage?.contextInfo?.participant.replace(/:.*@/g, '@');;
+    XA.replyMessage = messageInstance.message?.extendedTextMessage?.contextInfo?.quotedMessage?.conversation;
+    XA.body = XA.mimeType === 'conversation' ? messageInstance.message?.conversation : (XA.mimeType == 'imageMessage') ? messageInstance.message?.imageMessage.caption : (XA.mimeType == 'videoMessage') ? messageInstance.message?.videoMessage.caption : (XA.mimeType == 'extendedTextMessage') ? messageInstance.message?.extendedTextMessage?.text : (XA.mimeType == 'buttonsResponseMessage') ? messageInstance.message?.buttonsResponseMessage.selectedDisplayText : null;
+    XA.isCmd = prefixRegex.test(XA.body);
+    XA.commandName = XA.isCmd ? XA.body.slice(1).trim().split(/ +/).shift().toLowerCase() : null;
+    XA.isImage = XA.type === "image";
+    XA.isReplyImage = messageInstance.message?.extendedTextMessage?.contextInfo?.quotedMessage?.imageMessage ? true : false;
+    XA.imageCaption = XA.isImage ? messageInstance.message?.imageMessage.caption : null;
+    XA.isGIF = (XA.type === 'video' && messageInstance.message?.videoMessage?.gifPlayback);
+    XA.isReplyGIF = messageInstance.message?.extendedTextMessage?.contextInfo?.quotedMessage?.videoMessage?.gifPlayback ? true : false;
+    XA.isSticker = XA.type === 'sticker';
+    XA.isReplySticker = messageInstance.message?.extendedTextMessage?.contextInfo?.quotedMessage?.stickerMessage ? true : false;
+    XA.isReplyAnimatedSticker = messageInstance.message?.extendedTextMessage?.contextInfo?.quotedMessage?.stickerMessage?.isAnimated;
+    XA.isVideo = (XA.type === 'video' && !messageInstance.message?.videoMessage?.gifPlayback);
+    XA.isReplyVideo = XA.isTextReply ? (jsonMessage.indexOf("videoMessage") !== -1 && !messageInstance.message?.extendedTextMessage?.contextInfo.quotedMessage.videoMessage.gifPlayback) : false;
+    XA.isAudio = XA.type === 'audio';
+    XA.isReplyAudio = messageInstance.message?.extendedTextMessage?.contextInfo?.quotedMessage?.audioMessage ? true : false;
+    XA.logGroup = client.user.id.replace(/:.*@/g, '@');;
+    XA.isGroup = XA.chatId.endsWith('@g.us');
+    XA.isPm = !XA.isGroup;
+    XA.sender = (XA.isGroup && messageInstance.message && XA.fromMe) ? XA.owner : (XA.isGroup && messageInstance.message) ? messageInstance.key.participant.replace(/:.*@/g, '@') : (!XA.isGroup) ? XA.chatId : null;
+    XA.isSenderSUDO = SUDOstring.includes(XA.sender?.substring(0, XA.sender.indexOf("@")));
 
-    return BotsApp;
+    return XA;
 }
 
 export = resolve;

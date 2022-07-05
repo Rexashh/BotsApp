@@ -4,7 +4,7 @@ import inputSanitization from "../sidekick/input-sanitization";
 import Blacklist from "../database/blacklist";
 import Client from "../sidekick/client";
 import { proto } from "@adiwajshing/baileys";
-import BotsApp from "../sidekick/sidekick";
+import XA from "../sidekick/sidekick";
 import { MessageType } from "../sidekick/message-type";
 const rbl = Strings.rbl;
 
@@ -13,13 +13,13 @@ module.exports = {
     description: rbl.DESCRIPTION,
     extendedDescription: rbl.EXTENDED_DESCRIPTION,
     demo: { isEnabled: true, text: ".rbl" },
-    async handle(client: Client, chat: proto.IWebMessageInfo, BotsApp: BotsApp, args: string[]): Promise<void> {
+    async handle(client: Client, chat: proto.IWebMessageInfo, XA: XA, args: string[]): Promise<void> {
         try {
-            if (BotsApp.isPm && BotsApp.fromMe) {
-                let PersonToRemoveFromBlacklist = BotsApp.chatId;
+            if (XA.isPm && XA.fromMe) {
+                let PersonToRemoveFromBlacklist = XA.chatId;
                 if (!(await Blacklist.getBlacklistUser(PersonToRemoveFromBlacklist, ""))) {
                     client.sendMessage(
-                        BotsApp.chatId,
+                        XA.chatId,
                         format(rbl.NOT_IN_BLACKLIST, PersonToRemoveFromBlacklist.substring(0, PersonToRemoveFromBlacklist.indexOf("@"))),
                         MessageType.text
                     );
@@ -27,19 +27,19 @@ module.exports = {
                 }
                 Blacklist.removeBlacklistUser(PersonToRemoveFromBlacklist, "");
                 client.sendMessage(
-                    BotsApp.chatId,
+                    XA.chatId,
                     format(rbl.PM_ACKNOWLEDGEMENT, PersonToRemoveFromBlacklist.substring(0, PersonToRemoveFromBlacklist.indexOf("@"))),
                     MessageType.text
                 );
                 return;
             } else {
-                await client.getGroupMetaData(BotsApp.chatId, BotsApp);
+                await client.getGroupMetaData(XA.chatId, XA);
                 if (args.length > 0) {
                     let PersonToRemoveFromBlacklist =
                         await inputSanitization.getCleanedContact(
                             args,
                             client,
-                            BotsApp
+                            XA
                         );
 
                     if (PersonToRemoveFromBlacklist === undefined) return;
@@ -47,11 +47,11 @@ module.exports = {
                     if (
                         !(await Blacklist.getBlacklistUser(
                             PersonToRemoveFromBlacklist,
-                            BotsApp.chatId
+                            XA.chatId
                         ))
                     ) {
                         client.sendMessage(
-                            BotsApp.chatId,
+                            XA.chatId,
                             format(rbl.NOT_IN_BLACKLIST, PersonToRemoveFromBlacklist.substring(0, PersonToRemoveFromBlacklist.indexOf("@"))),
                             MessageType.text
                         );
@@ -59,24 +59,24 @@ module.exports = {
                     }
                     Blacklist.removeBlacklistUser(
                         PersonToRemoveFromBlacklist,
-                        BotsApp.chatId
+                        XA.chatId
                     );
                     client.sendMessage(
-                        BotsApp.chatId,
+                        XA.chatId,
                         format(rbl.GRP_ACKNOWLEDGEMENT, PersonToRemoveFromBlacklist.substring(0, PersonToRemoveFromBlacklist.indexOf("@"))),
                         MessageType.text
                     );
                     return;
-                } else if (BotsApp.isTextReply) {
-                    let PersonToRemoveFromBlacklist = BotsApp.replyParticipant;
+                } else if (XA.isTextReply) {
+                    let PersonToRemoveFromBlacklist = XA.replyParticipant;
                     if (
                         !(await Blacklist.getBlacklistUser(
                             PersonToRemoveFromBlacklist,
-                            BotsApp.chatId
+                            XA.chatId
                         ))
                     ) {
                         client.sendMessage(
-                            BotsApp.chatId,
+                            XA.chatId,
                             format(rbl.NOT_IN_BLACKLIST, PersonToRemoveFromBlacklist.substring(0, PersonToRemoveFromBlacklist.indexOf("@"))),
                             MessageType.text
                         );
@@ -84,36 +84,36 @@ module.exports = {
                     }
                     Blacklist.removeBlacklistUser(
                         PersonToRemoveFromBlacklist,
-                        BotsApp.chatId
+                        XA.chatId
                     );
                     client.sendMessage(
-                        BotsApp.chatId,
+                        XA.chatId,
                         format(rbl.GRP_ACKNOWLEDGEMENT, PersonToRemoveFromBlacklist.substring(0, PersonToRemoveFromBlacklist.indexOf("@"))),
                         MessageType.text
                     );
                     return;
                 } else {
                     if (
-                        !(await Blacklist.getBlacklistUser("", BotsApp.chatId))
+                        !(await Blacklist.getBlacklistUser("", XA.chatId))
                     ) {
                         client.sendMessage(
-                            BotsApp.chatId,
-                            format(rbl.NOT_IN_BLACKLIST, BotsApp.groupName),
+                            XA.chatId,
+                            format(rbl.NOT_IN_BLACKLIST, XA.groupName),
                             MessageType.text
                         );
                         return;
                     }
-                    Blacklist.removeBlacklistUser("", BotsApp.chatId);
+                    Blacklist.removeBlacklistUser("", XA.chatId);
                     client.sendMessage(
-                        BotsApp.chatId,
-                        format(rbl.GRP_BAN, BotsApp.groupName),
+                        XA.chatId,
+                        format(rbl.GRP_BAN, XA.groupName),
                         MessageType.text
                     );
                     return;
                 }
             }
         } catch (err) {
-            await inputSanitization.handleError(err, client, BotsApp);
+            await inputSanitization.handleError(err, client, XA);
         }
     },
 };

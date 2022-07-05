@@ -3,7 +3,7 @@ import config from "../config";
 import String from "../lib/db.js";
 import Client from "../sidekick/client";
 import { proto } from "@adiwajshing/baileys";
-import BotsApp from "../sidekick/sidekick";
+import XA from "../sidekick/sidekick";
 import { MessageType } from "../sidekick/message-type";
 import format from "string-format";
 const PING = String.ping;
@@ -13,14 +13,14 @@ module.exports = {
     description: PING.DESCRIPTION,
     extendedDescription: PING.EXTENDED_DESCRIPTION,
     demo: { isEnabled: true },
-    async handle(client: Client, chat: proto.IWebMessageInfo, BotsApp: BotsApp, args: string[]): Promise<void> {
+    async handle(client: Client, chat: proto.IWebMessageInfo, XA: XA, args: string[]): Promise<void> {
         try {
             var start = new Date().getTime();
-			await client.sendMessage(BotsApp.chatId,'```Ping!```',MessageType.text);
+			await client.sendMessage(XA.chatId,'```Ping!```',MessageType.text);
 			var end = new Date().getTime();
-			await client.sendMessage(BotsApp.chatId, "*Pong!* ```" + (end - start) + "ms```", MessageType.text);
+			await client.sendMessage(XA.chatId, "*Pong!* ```" + (end - start) + "ms```", MessageType.text);
         } catch (err) {
-			await inputSanitization.handleError(err, client, BotsApp);
+			await inputSanitization.handleError(err, client, XA);
 		}
     },
 };

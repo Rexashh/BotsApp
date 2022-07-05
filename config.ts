@@ -18,7 +18,7 @@ const convertToLogLevel = (value: string) => {
 }
 
 // Declare these environment variables first
-process.env.DATABASE_URL = process.env.DATABASE_URL === undefined ? './BotsApp.db' : process.env.DATABASE_URL;
+process.env.DATABASE_URL = process.env.DATABASE_URL === undefined ? './XA.db' : process.env.DATABASE_URL;
 process.env.DEBUG = process.env.DEBUG === undefined ? 'false' : process.env.DEBUG;
 
 const config = {
@@ -32,9 +32,9 @@ const config = {
         process.env.CURRENT_WEATHER_API_KEY === undefined
             ? "6729ac2b2e2bb5c686ff427a2f06df92"
             : process.env.CURRENT_WEATHER_API_KEY,
-    DATABASE_URL: process.env.DATABASE_URL === undefined ? './BotsApp.db' : process.env.DATABASE_URL,
+    DATABASE_URL: process.env.DATABASE_URL === undefined ? './XA.db' : process.env.DATABASE_URL,
     DEBUG: process.env.DEBUG === undefined ? false : process.env.DEBUG,
-    DATABASE: process.env.DATABASE_URL === './BotsApp.db' ? new Sequelize({ dialect: "sqlite", storage: process.env.DATABASE_URL, logging: convertToLogLevel(process.env.DEBUG) }) : new Sequelize(process.env.DATABASE_URL, { dialect: 'postgres', protocol: 'postgres', logging: convertToLogLevel(process.env.DEBUG), dialectOptions: { ssl: { require: true, rejectUnauthorized: false } } }),
+    DATABASE: process.env.DATABASE_URL === './XA.db' ? new Sequelize({ dialect: "sqlite", storage: process.env.DATABASE_URL, logging: convertToLogLevel(process.env.DEBUG) }) : new Sequelize(process.env.DATABASE_URL, { dialect: 'postgres', protocol: 'postgres', logging: convertToLogLevel(process.env.DEBUG), dialectOptions: { ssl: { require: true, rejectUnauthorized: false } } }),
     WORK_TYPE: process.env.WORK_TYPE === undefined ? "private" : process.env.WORK_TYPE,
     SUDO: process.env.SUDO === undefined ? "" : process.env.SUDO,
     OFFLINE_RESPONSE: process.env.OFFLINE_RESPONSE === undefined ? true : process.env.OFFLINE_RESPONSE
