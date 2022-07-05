@@ -19,9 +19,9 @@ export = {
                 XA.chatId,
                 fs.readFileSync("./images/alivelogo.jpg"),
                 MessageType.image,
-                 {
-                        caption: alive.ALIVEMSG
-				 }
+                {
+					caption: alive.ALIVE_MSG
+				}
             ).catch(err => inputSanitization.handleError(err, client, XA));
         } catch (err) {await inputSanitization.handleError(err, client, XA);
         }
