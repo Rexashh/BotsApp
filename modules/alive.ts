@@ -22,10 +22,11 @@ client.sendMessage(
                         caption: alive.ALIVEMSG,
                     }
                 );
-            return
+                return
             ).catch(err => inputSanitization.handleError(err, client, XA));
         } catch (err) {
             await inputSanitization.handleError(err, client, XA);
         }
+        return
     },
 };
