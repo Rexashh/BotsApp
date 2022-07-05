@@ -151,7 +151,7 @@ setInterval(() => {
             } else if (connection === 'connecting') {
                 console.log(chalk.yellowBright("[INFO] Menghubungkan ke WhatsApp..."));
             } else if (connection === 'open') {
-                console.log(chalk.greenBright.bold("[INFO] Connected! Welcome to BotsApp"));
+                console.log(chalk.greenBright.bold("[INFO] Connected! Welcome to Xa-Userbot"));
                 // if (firstInit) {
                 //     firstInit = false;
                 //     sock.sendMessage(
