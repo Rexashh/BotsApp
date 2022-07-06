@@ -50,7 +50,7 @@ const data = {
         DESCRIPTION: "Periksa apakah bot sedang online.",
         EXTENDED_DESCRIPTION:
             "```Modul ini dapat digunakan untuk memeriksa apakah bot sedang online atau tidak.\n\nContoh penggunaan,```\n*.alive*",
-        ALIVE_MSG: "```⚡ 𝙓𝘼-𝙐𝙎𝙀𝙍𝘽𝙊𝙏 𝘼𝘾𝙏𝙄𝙑𝙀.\n\nGunakan ```*.help*``` untuk melihat semua module.```"
+        ALIVE_MSG: "┏━━━━━━━━━━━━━━━━━\n⚡ 𝙓𝘼 𝙐𝙎𝙀𝙍𝘽𝙊𝙏\n⚡ ʙᴏᴛ ᴠᴇʀsɪᴏɴ  : 1.0\n⚡ᴏᴡɴᴇʀ: {client}\n⚡ᴜᴘᴛɪᴍᴇ  : {uptime}\n┗━━━━━━━━━━━━━━━━━━\n\nketik ```.help``` untuk melihat semua module.",
     },
     block: {
         DESCRIPTION: "Block contact",
@@ -123,8 +123,8 @@ const data = {
         DESCRIPTION: "Dapatkan daftar perintah dan info tentang modul",
         EXTENDED_DESCRIPTION:
             "This module is used to get info on other modules and their triggers.",
-        HEAD: "⚡ *Xa-Bots Menu* ⚡\n```Gunakan .help untuk info rinci tentang modul.```",
-        TEMPLATE: "\n\n⚡ *Perintah* - ```{}```\n• *Info* - ```{}```",
+        HEAD: "⚡ *Xa-Userbot Menu*\n```Gunakan .help untuk info rinci tentang modul.```",
+        TEMPLATE: "\n📚 *Perintah* : ```{}```",
         COMMAND_INTERFACE: "⚡ *Xa-Userbot Perintah* ⚡\n\n",
         COMMAND_INTERFACE_TEMPLATE: "🖱️ *Prefix -* ```{}```\n📋 *Info -* {}",
         FOOTER: "```\n\nKlik tombol di bawah ini untuk mendapatkan pratinjau plugin.```"
@@ -184,9 +184,9 @@ const data = {
         NO_TEXT: "Tidak dapat menemukan teks dalam gambar"
     }, 
     ping: {
-		DESCRIPTION: "Measures your ping.",
-		EXTENDED_DESCRIPTION: "Measures your connection trough the internet per ms.",
-		PING_MSG: "⚡*Pong!* ```{PINGVAR} ms```"
+       DESCRIPTION: "Mengukur ping Anda.",
+       EXTENDED_DESCRIPTION: "Mengukur koneksi Anda melalui internet per ms.",
+       PING_MSG: "⚡*Pong!* ```{PINGVAR} ms```"
     },
     promote: {
         DESCRIPTION: "Promosikan anggota menjadi admin",
