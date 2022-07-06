@@ -26,7 +26,7 @@ const config = {
     STRING_SESSION: process.env.STRING_SESSION === undefined ? '' : process.env.STRING_SESSION,
     HEROKU: process.env.HEROKU === undefined ? false : true,
     PREFIX: process.env.PREFIX === undefined ? "^[.?!]" : process.env.PREFIX,
-    COUNTRY_CODE: process.env.COUNTRY_CODE === undefined ? "91" : process.env.COUNTRY_CODE,
+    COUNTRY_CODE: process.env.COUNTRY_CODE === undefined ? "62" : process.env.COUNTRY_CODE,
     OCR_API_KEY: process.env.OCR_API_KEY === undefined ? "9ffb44def388957" : process.env.OCR_API_KEY,
     WEATHER_API_KEY:
         process.env.CURRENT_WEATHER_API_KEY === undefined
@@ -35,7 +35,7 @@ const config = {
     DATABASE_URL: process.env.DATABASE_URL === undefined ? './XA.db' : process.env.DATABASE_URL,
     DEBUG: process.env.DEBUG === undefined ? false : process.env.DEBUG,
     DATABASE: process.env.DATABASE_URL === './XA.db' ? new Sequelize({ dialect: "sqlite", storage: process.env.DATABASE_URL, logging: convertToLogLevel(process.env.DEBUG) }) : new Sequelize(process.env.DATABASE_URL, { dialect: 'postgres', protocol: 'postgres', logging: convertToLogLevel(process.env.DEBUG), dialectOptions: { ssl: { require: true, rejectUnauthorized: false } } }),
-    WORK_TYPE: process.env.WORK_TYPE === undefined ? "private" : process.env.WORK_TYPE,
+    WORK_TYPE: process.env.WORK_TYPE === undefined ? "public" : process.env.WORK_TYPE,
     SUDO: process.env.SUDO === undefined ? "" : process.env.SUDO,
     OFFLINE_RESPONSE: process.env.OFFLINE_RESPONSE === undefined ? true : process.env.OFFLINE_RESPONSE
 }

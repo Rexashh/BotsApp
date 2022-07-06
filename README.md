@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://telegra.ph/file/5a5221379021cd1052484.jpg" height="300px"/>
+  <img src="https://telegra.ph/file/d28a920ffe14ea704d2f4.png" height="300px"/>
 </p>
 
 
@@ -17,7 +17,7 @@ Manfaatkan asisten obrolan/pengelola grup pribadi Anda untuk memaksimalkan Whats
 
 <b>Hanya Deploy lewat lokal / Vps yang berfungsi untuk saat ini!</b>
 
-- Cara Deploy :
+Cara Deploy :
 
 - Buka VPS mu dan ketik / Copy :
 ```bash
@@ -27,9 +27,13 @@ git clone https://github.com/Rexashh/XaWhatsapp.git && cd XaWhatsapp
 ```bash
 screen -S botwhatsapp
 ```
-- Install npm ketik /copy :
+- Install npm ketik / copy :
 ```bash
 npm install
+```
+- Menambahkan module ketik / copy :
+```bash
+yarn
 ```
 - start npm ketik / copy :
 ```bash
@@ -44,7 +48,7 @@ npm start
 Jika Anda mengalami masalah saat menjalankan secara lokal, disarankan untuk memindai kode lagi. Untuk mendapatkan kode QR lagi, ikuti perintah ini -
 
 ```bash
-rm -rf BotsApp.db session.data.json
+rm -rf XA.db session.data.json
 ```
 ```bash
 npm start

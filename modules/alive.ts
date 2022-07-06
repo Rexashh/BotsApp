@@ -1,4 +1,5 @@
 import Strings from "../lib/db";
+import fs from "fs";
 import format from "string-format";
 import inputSanitization from "../sidekick/input-sanitization";
 import { MessageType } from "../sidekick/message-type";
@@ -14,13 +15,15 @@ export = {
     demo: { isEnabled: true, text: ".alive" },
     async handle(client: Client, chat: proto.IWebMessageInfo, XA: XA, args: string[]): Promise<void> {
         try {
-            client.sendMessage(
+			client.sendMessage(
                 XA.chatId,
-                alive.ALIVE_MSG,
-                MessageType.text
+                fs.readFileSync("./images/alivelogo.jpg"),
+                MessageType.image,
+                {
+					caption: alive.ALIVE_MSG
+				}
             ).catch(err => inputSanitization.handleError(err, client, XA));
-        } catch (err) {
-            await inputSanitization.handleError(err, client, XA);
+        } catch (err) {await inputSanitization.handleError(err, client, XA);
         }
     },
 };
