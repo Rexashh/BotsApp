@@ -17,7 +17,7 @@ Manfaatkan asisten obrolan/pengelola grup pribadi Anda untuk memaksimalkan Whats
 
 <b>Hanya Deploy lewat lokal / Vps yang berfungsi untuk saat ini!</b>
 
-- Cara Deploy :
+Cara Deploy :
 
 - Buka VPS mu dan ketik / Copy :
 ```bash
