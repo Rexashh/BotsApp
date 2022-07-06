@@ -50,7 +50,7 @@ const data = {
         DESCRIPTION: "Periksa apakah bot sedang online.",
         EXTENDED_DESCRIPTION:
             "```Modul ini dapat digunakan untuk memeriksa apakah bot sedang online atau tidak.\n\nContoh penggunaan,```\n*.alive*",
-        ALIVE_MSG: "𝙓𝘼 𝙐𝙎𝙀𝙍𝘽𝙊𝙏 _up and running_ ⚡\n┏━━━━━━━━━━━━━━━━━\n⚡ ᴏᴡɴᴇʀ : {owner}\n⚡ ʙᴏᴛ ᴠᴇʀsɪᴏɴ  : 1.0\n⚡ᴍᴏᴅᴜʟᴇs: 40 ```modules```\n⚡ɢʀᴏᴜᴘ : t.me/rexaprivateroom\n⚡ᴄʜᴀɴɴᴇʟ : t.me/tirexgugel\n⚡ʀᴇᴘᴏ : github.com/Rexashh/XaWhatsapp/n⚡ʙʀᴀɴᴄʜ : multi-devices\n┗━━━━━━━━━━━━━━━━━━\n\nketik ```.help``` untuk melihat semua module.",
+        ALIVE_MSG: "𝙓𝘼 𝙐𝙎𝙀𝙍𝘽𝙊𝙏 _up and running_ ⚡\n┏━━━━━━━━━━━━━━━━━\n⚡ ᴏᴡɴᴇʀ : {owner}\n⚡ ʙᴏᴛ ᴠᴇʀsɪᴏɴ  : 1.0\n⚡ᴍᴏᴅᴜʟᴇs: 40 ```modules```\n⚡ɢʀᴏᴜᴘ : t.me/rexaprivateroom\n⚡ᴄʜᴀɴɴᴇʟ : t.me/tirexgugel\n⚡ʀᴇᴘᴏ : github.com/Rexashh/XaWhatsapp\n⚡ʙʀᴀɴᴄʜ : multi-devices\n┗━━━━━━━━━━━━━━━━━━\n\nketik ```.help``` untuk melihat semua module.",
     },
     block: {
         DESCRIPTION: "Block contact",
@@ -122,11 +122,11 @@ const data = {
     help: {
         DESCRIPTION: "Dapatkan daftar perintah dan info tentang modul",
         EXTENDED_DESCRIPTION:
-            "This module is used to get info on other modules and their triggers.",
-        HEAD: "━━━━━━━━━━\n⚡ *Xa-Userbot Menu*\n━━━━━━━━━━\n\nGunakan ```.help nama plugin``` \nuntuk info rinci tentang modul\n",
-        TEMPLATE: "➡ ```{}```\n",
+            "Modul ini digunakan untuk mendapatkan info tentang modul lain dan Perintahnya.",
+        HEAD: "━━━━━━━━━━\n⚡ *Xa-Userbot Menu*\n━━━━━━━━━━\n\nGunakan ```.help nama plugin``` \nuntuk info lebih Jelas tentang modul\n\n📚Nama Perintah :\n",
+        TEMPLATE: "➡ ```{}```",
         COMMAND_INTERFACE: "⚡ *Xa-Userbot Bantuan* ⚡\n\n",
-        COMMAND_INTERFACE_TEMPLATE: "🖱️ *Prefix -* ```{}```\n📋 *Info -* {}",
+        COMMAND_INTERFACE_TEMPLATE: "🖱️ *Prefix :* ```{}```\n📋 *Info :* {}",
         FOOTER: "```\n\nKlik tombol di bawah ini untuk mendapatkan pratinjau plugin.```"
     },
     invite: {
