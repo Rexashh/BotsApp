@@ -50,7 +50,7 @@ const data = {
         DESCRIPTION: "Periksa apakah bot sedang online.",
         EXTENDED_DESCRIPTION:
             "```Modul ini dapat digunakan untuk memeriksa apakah bot sedang online atau tidak.\n\nContoh penggunaan,```\n*.alive*",
-        ALIVE_MSG: "𝙓𝘼 𝙐𝙎𝙀𝙍𝘽𝙊𝙏 _up and running_ ⚡\n┏━━━━━━━━━━━━━━━━━\n⚡ ʙᴏᴛ ᴠᴇʀsɪᴏɴ  : 1.0\n⚡ᴍᴏᴅᴜʟᴇs: 40 ```modules```\n⚡ɢʀᴏᴜᴘ : https://t.me/rexaprivateroom\n⚡ᴄʜᴀɴɴᴇʟ : https://t.me/tirexgugel\n⚡ʀᴇᴘᴏ : https://github.com/Rexashh/XaWhatsapp/n⚡ʙʀᴀɴᴄʜ : multi-devices\n┗━━━━━━━━━━━━━━━━━━\n\nketik ```.help``` untuk melihat semua module.",
+        ALIVE_MSG: "𝙓𝘼 𝙐𝙎𝙀𝙍𝘽𝙊𝙏 _up and running_ ⚡\n┏━━━━━━━━━━━━━━━━━\n⚡ ᴏᴡɴᴇʀ : {owner}\n⚡ ʙᴏᴛ ᴠᴇʀsɪᴏɴ  : 1.0\n⚡ᴍᴏᴅᴜʟᴇs: 40 ```modules```\n⚡ɢʀᴏᴜᴘ : https://t.me/rexaprivateroom\n⚡ᴄʜᴀɴɴᴇʟ : https://t.me/tirexgugel\n⚡ʀᴇᴘᴏ : https://github.com/Rexashh/XaWhatsapp/n⚡ʙʀᴀɴᴄʜ : multi-devices\n┗━━━━━━━━━━━━━━━━━━\n\nketik ```.help``` untuk melihat semua module.",
     },
     block: {
         DESCRIPTION: "Block contact",
