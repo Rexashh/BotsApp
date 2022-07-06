@@ -27,9 +27,13 @@ git clone https://github.com/Rexashh/XaWhatsapp.git && cd XaWhatsapp
 ```bash
 screen -S botwhatsapp
 ```
-- Install npm ketik /copy :
+- Install npm ketik / copy :
 ```bash
 npm install
+```
+- Menambahkan module ketik / copy :
+```bash
+yarn
 ```
 - start npm ketik / copy :
 ```bash
