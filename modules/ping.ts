@@ -18,7 +18,7 @@ module.exports = {
             var start = new Date().getTime();
 			await client.sendMessage(XA.chatId,'```Ping!```',MessageType.text);
 			var end = new Date().getTime();
-			await client.sendMessage(XA.chatId, "*Pong!* ```" + (end - start) + "ms```", MessageType.text);
+			await client.sendMessage(XA.chatId, "🏓*Pong!* ```" + (end - start) + "ms```", MessageType.text);
         } catch (err) {
 			await inputSanitization.handleError(err, client, XA);
 		}
