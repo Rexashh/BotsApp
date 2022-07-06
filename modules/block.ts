@@ -54,7 +54,7 @@ module.exports = {
             client.sock.updateBlockStatus(JID, "block");
             client.sendMessage(
                 XA.chatId,
-                "*" + contact + " blocked successfully.*",
+                "*" + contact + " berhasil diblokir.*",
                 MessageType.text
             );
         } catch (err) {
