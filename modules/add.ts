@@ -115,6 +115,9 @@ module.exports = {
                 "```" + number + ADD.SUCCESS + "```",
                 MessageType.text
             );
+            var Msg = await Greetings.getMessage(groupId, "welcome");
+            client.sendMessage(groupId, Msg.message, MessageType.text);
+			
         } catch (err) {
             if (err.status == 400) {
                 await inputSanitization.handleError(
