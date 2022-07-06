@@ -1,3 +1,11 @@
+# Xa - UserBot
+# Copyright (C) 2021-2022 Rexashh & Kz
+#
+# This file is a part of < https://github.com/Rexashh/XaWhatsapp/ >
+# Don't delete this credit if you want to fork / clone
+# Appreciate the work of others.
+
+
 import Strings from "../lib/db";
 import fs from "fs";
 import format from "string-format";
