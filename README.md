@@ -48,7 +48,7 @@ npm start
 Jika Anda mengalami masalah saat menjalankan secara lokal, disarankan untuk memindai kode lagi. Untuk mendapatkan kode QR lagi, ikuti perintah ini -
 
 ```bash
-rm -rf BotsApp.db session.data.json
+rm -rf XA.db session.data.json
 ```
 ```bash
 npm start
