@@ -54,7 +54,7 @@ module.exports = {
             client.sock.updateBlockStatus(JID, "block");
             client.sendMessage(
                 XA.chatId,
-                "*" + contact + " Jamet Berhasil Diblokir...*",
+                "*" + contact + " Berhasil Di Blokir, Jamet ini tidak akan mengganggumu lagi..*",
                 MessageType.text
             );
         } catch (err) {
