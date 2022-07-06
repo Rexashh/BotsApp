@@ -8,10 +8,10 @@ const data = {
         ADMIN_PERMISSION:
             "```Anda harus menjadi admin untuk menjalankan perintah ini.```",
         SUDO_PERMISSION:
-            "```Hey there, I am ⚡Xa-Bots. I guess you were trying to use my commands in``` *{BotsApp.groupName}*```. However, the bot is currently in {worktype} mode. This enables only the owner and sudo users to use the command``` *{commandName}* ```.\n\nIf you are keen to use my features, you can deploy BotsApp on your own account without much effort, in less than 5 minutes! Check out the links given below.```\n\n🔗https://mybotsapp.com\n🔗https://github.com/BotsAppOfficial/BotsApp",
+            "```Hey there, I am ⚡Xa-Userbots. I guess you were trying to use my commands in``` *{BotsApp.groupName}*```. However, the bot is currently in {worktype} mode. This enables only the owner and sudo users to use the command``` *{commandName}* ```.\n\nIf you are keen to use my features, you can deploy BotsApp on your own account without much effort, in less than 5 minutes! Check out the links given below.```\n\n🔗https://mybotsapp.com\n🔗https://github.com/BotsAppOfficial/BotsApp",
         ERROR_TEMPLATE:
             "```Sepertinya ada yang tidak beres. Tidak perlu khawatir. Berikut adalah beberapa log sejak bot tidak merespons seperti yang diharapkan.```\n```---------```\n```🧐 Command:``` *{commandName}*\n```😎 From Me?:``` *{fromMe}*\n```🗣️ Was a reply?:``` *{isReply}*\n```👥 In a group?``` *{isGroup}*\n```📥 In Inbox?``` *{isPm}*\n```📸 Command with image?``` *{isImage}*\n```🕺🏻 Is Bot group admin?``` *{isBotGroupAdmin}*\n```📈 Was Sender group admin?``` *{isSenderGroupAdmin}*\n```🫂 Was sender sudo?``` *{isSenderSudo}*\n```⚠️ Error:``` \n*{err}*\n```---------```\n_To figure out what exactly went wrong, please report/raise the issue on our support chat at_ https://chat.whatsapp.com/DGEZ2VUgpAdJzcS7g7TID3",
-        SUCCESSFUL_CONNECTION: "*Xa-Bots successfuly activated.*\n```Bot is currently working in``` *{worktype}* ```mode.```\n```Untuk informasi lebih lanjut tentang kerja Bot dan izin, lihat:``` \n🔗https://github.com/Rexashh/BotsApp."
+        SUCCESSFUL_CONNECTION: "*Xa-Userbots successfuly activated.*\n```Bot is currently working in``` *{worktype}* ```mode.```\n```Untuk informasi lebih lanjut tentang kerja Bot dan izin, lihat:``` \n🔗https://github.com/Rexashh/BotsApp."
     },
     abl: {
         DESCRIPTION: "Modul untuk membuat daftar hitam seseorang atau obrolan dari menggunakan bot.",
@@ -50,7 +50,7 @@ const data = {
         DESCRIPTION: "Periksa apakah bot sedang online.",
         EXTENDED_DESCRIPTION:
             "```Modul ini dapat digunakan untuk memeriksa apakah bot sedang online atau tidak.\n\nContoh penggunaan,```\n*.alive*",
-        ALIVE_MSG: "┏━━━━━━━━━━━━━━━━━\n⚡ 𝙓𝘼 𝙐𝙎𝙀𝙍𝘽𝙊𝙏\n⚡ ʙᴏᴛ ᴠᴇʀsɪᴏɴ  : 1.0\n⚡ᴏᴡɴᴇʀ: {client}\n⚡ᴜᴘᴛɪᴍᴇ  : {uptime}\n┗━━━━━━━━━━━━━━━━━━\n\nketik ```.help``` untuk melihat semua module.",
+        ALIVE_MSG: "𝙓𝘼 𝙐𝙎𝙀𝙍𝘽𝙊𝙏 _up and running_ ⚡\n┏━━━━━━━━━━━━━━━━━\n⚡ ʙᴏᴛ ᴠᴇʀsɪᴏɴ  : 1.0\n⚡ᴍᴏᴅᴜʟᴇs: 40 ```modules```\n⚡ɢʀᴏᴜᴘ : https://t.me/rexaprivateroom\n⚡ᴄʜᴀɴɴᴇʟ : https://t.me/tirexgugel\n⚡ʀᴇᴘᴏ : https://github.com/Rexashh/XaWhatsapp/n⚡ʙʀᴀɴᴄʜ : multi-devices\n┗━━━━━━━━━━━━━━━━━━\n\nketik ```.help``` untuk melihat semua module.",
     },
     block: {
         DESCRIPTION: "Block contact",
@@ -108,7 +108,7 @@ const data = {
     getdp: {
         DESCRIPTION: "Dapatkan Foto Profil",
         EXTENDED_DESCRIPTION: "```Dapatkan gambar profil grup dalam percakapan grup atau gambar profil itu sendiri dalam obrolan pribadi. Tag seseorang di grup untuk mendapatkan foto profilnya.```",
-        IMAGE_CAPTION: "```Berikut adalah Foto Profilnya. Procured by Xa-Bots⚡.```",
+        IMAGE_CAPTION: "```Berikut adalah Foto Profilnya. Procured by _Xa-Userbot⚡_.```",
         PROCESSING: "```Sedang mendapatkan display picture...```",
         TRY_AGAIN: "```Gambar tampilan tidak ditemukan. Unggah gambar dan coba lagi.```"
     },
@@ -125,7 +125,7 @@ const data = {
             "This module is used to get info on other modules and their triggers.",
         HEAD: "━━━━━━━━━━\n⚡ *Xa-Userbot Menu*\n━━━━━━━━━━\n\nGunakan ```.help nama plugin``` \nuntuk info rinci tentang modul.",
         TEMPLATE: "• ```{}```",
-        COMMAND_INTERFACE: "⚡ *Xa-Userbot Perintah* ⚡\n\n",
+        COMMAND_INTERFACE: "⚡ *Xa-Userbot Bantuan* ⚡\n\n",
         COMMAND_INTERFACE_TEMPLATE: "🖱️ *Prefix -* ```{}```\n📋 *Info -* {}",
         FOOTER: "```\n\nKlik tombol di bawah ini untuk mendapatkan pratinjau plugin.```"
     },
@@ -381,7 +381,7 @@ const data = {
             "```Dapatkan 10 rekomendasi pertama dari YouTube dengan nama pengarangnya, stempel waktu dan tautan. Sebutkan kata kunci yang wajib dicari beserta perintahnya.```",
         REPLY: "```Mendapatkan rekomendasi...```",
         NO_VIDEOS: "```Tidak ada video yang dapat ditemukan.```",
-        ENTER_INPUT: "```Silakan masukkan kueri yang ingin Anda cari. Menggunakan``` *.help yt* ```untuk info lebih lanjut.```"
+        ENTER_INPUT: "```Silakan masukkan kueri yang ingin Anda cari. Gunakan``` *.help yt* ```untuk info lebih lanjut.```"
     }
 };
 
