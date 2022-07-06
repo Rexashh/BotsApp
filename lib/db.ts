@@ -123,8 +123,8 @@ const data = {
         DESCRIPTION: "Dapatkan daftar perintah dan info tentang modul",
         EXTENDED_DESCRIPTION:
             "This module is used to get info on other modules and their triggers.",
-        HEAD: "⚡ *Xa-Userbot Menu*\n```Gunakan .help untuk info rinci tentang modul.```",
-        TEMPLATE: "\n📚 *Perintah* : ```{}```",
+        HEAD: "━━━━━━━━━━\n⚡ *Xa-Userbot Menu*\n━━━━━━━━━━\n\nGunakan ```.help nama plugin``` \nuntuk info rinci tentang modul.",
+        TEMPLATE: "• ```{}```",
         COMMAND_INTERFACE: "⚡ *Xa-Userbot Perintah* ⚡\n\n",
         COMMAND_INTERFACE_TEMPLATE: "🖱️ *Prefix -* ```{}```\n📋 *Info -* {}",
         FOOTER: "```\n\nKlik tombol di bawah ini untuk mendapatkan pratinjau plugin.```"
