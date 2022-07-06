@@ -17,7 +17,7 @@ export = {
         try {
 			client.sendMessage(
                 XA.chatId,
-                fs.readFileSync("./images/alivelogo.jpg"),
+                fs.readFileSync("./images/alivelogo.png"),
                 MessageType.image,
                 {
 					caption: alive.ALIVE_MSG
